@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.backend')
 
 @section('content')
     <div class="container">
@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex align-content-center justify-content-between">
-                        <span> clients</span>
+                        <span>clients</span>
                         <a href="{{ route('clients.create') }}">create</a>
                     </div>
                     <div class="card-body p-0">

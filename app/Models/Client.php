@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Entity;
 use App\Traits\MediaTrait;
 use Spatie\MediaLibrary\HasMedia;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Client extends Model implements HasMedia
+class Client extends Entity implements HasMedia
 {
-    use MediaTrait, InteractsWithMedia, HasFactory;
+    use MediaTrait, InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.

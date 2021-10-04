@@ -20,6 +20,7 @@ class CreateServicePortfoliosTable extends Migration
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade')->onUpdate('cascade');
             $table->primary(['portfolio_id', 'service_id']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

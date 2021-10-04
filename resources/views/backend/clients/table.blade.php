@@ -12,7 +12,7 @@
             @forelse ($clients as $row)
                 <tr>
                     <th class="align-middle" scope="row">{{ $row->name }}</th>
-                    <td class="align-middle">{{ $row->description }}</td>
+                    <td class="align-middle">{{ \Str::words(strip_tags($row->description), 20) }}</td>
                     <td class="align-middle">
                         @if ($row->getModelMedia())
                             <img src="{{ $row->getModelMedia() }}" width="100" height="100">

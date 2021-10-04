@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('backend.services.form', function ($view) {
+        view()->composer(['backend.services.form'], function ($view) {
             $view->with('clients', \App\Models\Client::latest()->get());
             $view->with('portfolios', \App\Models\Portfolio::latest()->get());
         });

@@ -25,8 +25,20 @@ class ClientRequest extends FormRequest
     {
         return [
             'name'        => 'required|string',
-            'description' => 'required|string',
+            'description' => 'required|not_in:<p><br></p>',
             'image'       => 'required_if:_method,store|file',
+        ];
+    }
+
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'description.not_in' => 'The description field is required'
         ];
     }
 }

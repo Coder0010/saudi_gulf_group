@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Entity;
 use App\Traits\MediaTrait;
 use Spatie\MediaLibrary\HasMedia;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Portfolio extends Model implements HasMedia
+class Portfolio extends Entity implements HasMedia
 {
     use MediaTrait, InteractsWithMedia, HasFactory;
 

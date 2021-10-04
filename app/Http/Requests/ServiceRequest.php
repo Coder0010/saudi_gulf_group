@@ -23,10 +23,27 @@ class ServiceRequest extends FormRequest
      */
     public function rules()
     {
+        logger(request()->description);
         return [
-            'name'        => 'required|string',
-            'description' => 'required|string',
-            'image'       => 'required_if:_method,store|file',
+            'name'           => 'required|string',
+            'description'    => 'required|not_in:<p><br></p>',
+            'image'          => 'required_if:_method,store|file',
+            'clients'        => 'array',
+            'clients.*'      => 'exists:clients,id',
+            'portfolios'     => 'array',
+            'portfolios.*'   => 'exists:portfolios,id'
+        ];
+    }
+
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'description.not_in' => 'The description field is required'
         ];
     }
 }

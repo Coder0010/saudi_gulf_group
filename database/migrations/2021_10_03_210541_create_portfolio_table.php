@@ -20,6 +20,7 @@ class CreatePortfolioTable extends Migration
             $table->string('category')->nullable();
             $table->string('location')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

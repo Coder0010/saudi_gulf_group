@@ -7,8 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="{{ asset('backend/compiled.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -27,15 +27,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('clients.index') }}">clients</a>
-                        </li><!-- clients -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('portfolios.index') }}">portfolios</a>
-                        </li><!-- portfolios -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('services.index') }}">services</a>
-                        </li><!-- services -->
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('clients.index') }}">clients</a>
+                            </li><!-- clients -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('portfolios.index') }}">portfolios</a>
+                            </li><!-- portfolios -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('services.index') }}">services</a>
+                            </li><!-- services -->
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -82,16 +84,8 @@
             @yield('content')
         </main>
     </div>
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            if ($(".select-2").length) {
-                $(".select-2").select2({ width: "100%" });
-            }
-        });
-    </script>
+    <script src="{{ asset('backend/compiled.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     @yield('js')
 </body>
 

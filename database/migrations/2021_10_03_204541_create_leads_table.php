@@ -21,6 +21,7 @@ class CreateLeadsTable extends Migration
             $table->string('phone')->nullable();
             $table->string('description')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -18,6 +18,7 @@ class CreatePermissionTables extends Migration
             $table->string('guard_type')->default('Admin_Guard');
             $table->string('guard_name');
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create($tableNames['permissions'], function (Blueprint $table) {
@@ -26,6 +27,7 @@ class CreatePermissionTables extends Migration
             $table->string('model_name');
             $table->string('guard_name');
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create($tableNames['model_has_roles'], function (Blueprint $table) use ($tableNames, $columnNames) {

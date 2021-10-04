@@ -23,14 +23,27 @@ mix
     ], 'public/frontend/compiled.css')
     .scripts([
         'theme/js/jquery.js',
-        'theme/js/owl.carousel.min.js',
         'theme/js/popper.min.js',
         'theme/js/bootstrap.min.js',
+        'theme/js/owl.carousel.min.js',
         'theme/js/aos.js',
         'theme/js/ekko-lightbox.min.js',
         'theme/js/select2.js',
         'theme/js/plugin.js',
     ], 'public/frontend/compiled.js')
+
+    .styles([
+        'theme/css/bootstrap.min.css',
+        'theme/css/select2.css',
+        'theme/css/quill.snow.css',
+    ], 'public/backend/compiled.css')
+    .scripts([
+        'theme/js/jquery.js',
+        'theme/js/popper.min.js',
+        'theme/js/bootstrap.min.js',
+        'theme/js/select2.js',
+        'theme/js/quill.js',
+    ], 'public/backend/compiled.js')
 
     .copyDirectory('node_modules/font-awesome/fonts', 'public/fonts')
     .copyDirectory('theme/images', 'public/frontend/images')

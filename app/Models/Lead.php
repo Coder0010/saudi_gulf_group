@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Entity;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Lead extends Model
+class Lead extends Entity
 {
-    use HasFactory;
+
 }

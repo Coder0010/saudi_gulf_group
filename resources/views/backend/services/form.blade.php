@@ -2,17 +2,25 @@
     @csrf
     @method($requestType ?? 'post')
     <div class="form-group col-md-12">
-        <input type="text" name="name" class="form-control" placeholder="name" value="{{ $entity ? $entity['name'] : '' }}">
+        <label for="name">name</label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="name" value="{{ $entity ? $entity['name'] : '' }}">
     </div><!-- name -->
-    <div class="form-group col-md-12">
-        <textarea name="description" class="form-control" placeholder="description" cols="30" rows="10">{{ $entity ? $entity['description'] : '' }}</textarea>
+    <div class="form-group col-md-12 h-100">
+        <label for="description">description</label>
+        <div id="description_editor">{!! $entity ? $entity['description'] : '' !!}</div>
     </div><!-- description -->
     <div class="form-group col-md-12">
-        <input type="file" name="image" class="form-control" placeholder="image">
+        <label for="image">image</label>
+        <input type="file" name="image" id="image" class="form-control">
     </div><!-- image -->
+    @if (Route::is('services.edit') && $entity->getModelMedia())
+        <div class="form-group col-md-12">
+            <img src="{{ $entity->getModelMedia() }}" width="100%" height="100px"/>
+        </div>
+    @endif
     <div class="form-group col-md-12">
         <label for="clients">clients</label>
-        <select class="select-2" id="clients" name="clients[]" multiple="multiple">
+        <select id="clients" class="select-2 form-control" name="clients[]" multiple="multiple">
             @foreach ($clients as $item)
                 <option value="{{ $item->id }}">{{ $item->name }}</option>
             @endforeach
@@ -20,16 +28,11 @@
     </div><!-- clients -->
     <div class="form-group col-md-12">
         <label for="portfolios">portfolios</label>
-        <select class="select-2" id="portfolios" name="portfolios[]" multiple="multiple">
+        <select id="portfolios" class="select-2 form-control" name="portfolios[]" multiple="multiple">
             @foreach ($portfolios as $item)
                 <option value="{{ $item->id }}">{{ $item->name }}</option>
             @endforeach
         </select>
     </div><!-- portfolios -->
-    @if (Route::is('services.edit'))
-        <div class="form-group col-md-12">
-            <img src="{{ $entity->getModelMedia() }}" width="100%" height="100px"/>
-        </div>
-    @endif
     <button class="btn btn-success btn-block" type="submit">Submit</button>
 </form>

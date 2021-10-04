@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
-Auth::routes();
+Auth::routes([
+    'register' => false,
+    'verify'   => false,
+
+]);
 Route::get('home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('services', 'ServiceController');

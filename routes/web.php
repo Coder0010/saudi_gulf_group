@@ -16,8 +16,9 @@ Route::get('/', function () {
 });
 
 Auth::routes([
-    // 'register' => false,
+    'register' => env('APP_ENV') == 'local' ? true : false,
     'verify'   => false,
+    'reset'    => false,
 
 ]);
 Route::get('home', 'HomeController@index')->name('home');

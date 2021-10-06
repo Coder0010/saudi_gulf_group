@@ -1,8 +1,9 @@
-<div class="table-responsive">
+<div class="table-responsive text-center">
     <table class="table table-dark m-0">
         <thead>
             <tr>
-                <th scope="col">name</th>
+                <th scope="col">id</th>
+                <th>name</th>
                 <th>description</th>
                 <th>image</th>
                 <th>actions</th>
@@ -11,14 +12,11 @@
         <tbody>
             @forelse ($clients as $row)
                 <tr>
-                    <th class="align-middle" scope="row">{{ $row->name }}</th>
+                    <th class="align-middle" scope="row">{{ $row->id }}</th>
+                    <th class="align-middle">{{ $row->name }}</th>
                     <td class="align-middle">{{ \Str::words(strip_tags($row->description), 20) }}</td>
                     <td class="align-middle">
-                        @if ($row->getModelMedia())
-                            <img src="{{ $row->getModelMedia() }}" width="100" height="100">
-                        @else
-                            no image
-                        @endif
+                        <img src="{{ $row->image_url }}" width="100" height="100">
                     </td>
                     <td class="align-middle">
                         <a href="{{ route('clients.edit', $row) }}">

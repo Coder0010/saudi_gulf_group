@@ -21,12 +21,11 @@ trait MediaTrait
      *
      * @return bool
      */
-    public function getImageAttribute()
+    public function getImageUrlAttribute()
     {
         if($this->getModelMedia()){
             return $this->getModelMedia();
-        }else{
-            return asset('frontend/images/default.png');
         }
+        return asset('frontend/images/default.png');
     }
 }

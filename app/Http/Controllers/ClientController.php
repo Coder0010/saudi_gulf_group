@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Cache;
 use Session;
 use Exception;
 use App\Models\Client;
 use Illuminate\Http\Request;
-use Facades\App\Libraries\MediaLibrary;
 use App\Http\Requests\ClientRequest;
+use App\Http\Resources\ClientResource;
+use Facades\App\Libraries\MediaLibrary;
 
 class ClientController extends Controller
 {
@@ -47,7 +49,7 @@ class ClientController extends Controller
             $entity = Client::create($request->validated());
             if ($entity) {
                 MediaLibrary::storeOrUpdate($entity, "image");
-                Session::flash("success", " [ $entity->name ] created successfully" );
+                Session::flash("success", " [ $entity->name ] created successfully");
             } else {
                 Session::flash("danger", "failed to create record");
             }
@@ -67,7 +69,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        return view('backend.clients.edit',[
+        return view('backend.clients.edit', [
             'entity' => $client
         ]);
     }
@@ -86,7 +88,7 @@ class ClientController extends Controller
             $entity = $client->update($request->validated());
             MediaLibrary::storeOrUpdate($client, "image");
             if ($entity) {
-                Session::flash("success", " [ $client->name ] updated successfully" );
+                Session::flash("success", " [ $client->name ] updated successfully");
             } else {
                 Session::flash("danger", "failed to update record");
             }
@@ -110,7 +112,7 @@ class ClientController extends Controller
         try {
             $entity = $client->delete();
             if ($entity) {
-                Session::flash("success", " [ $client->name ] deleted successfully" );
+                Session::flash("success", " [ $client->name ] deleted successfully");
             } else {
                 Session::flash("danger", "failed to delete record");
             }

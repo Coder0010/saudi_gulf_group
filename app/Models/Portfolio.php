@@ -21,4 +21,11 @@ class Portfolio extends Entity implements HasMedia
         'name',
         'description',
     ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['image'];
 }

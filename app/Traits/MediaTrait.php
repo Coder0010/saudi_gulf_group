@@ -15,4 +15,18 @@ trait MediaTrait
         }
         return "";
     }
+
+    /**
+     * Determine if the entity has image.
+     *
+     * @return bool
+     */
+    public function getImageAttribute()
+    {
+        if($this->getModelMedia()){
+            return $this->getModelMedia();
+        }else{
+            return asset('frontend/images/default.png');
+        }
+    }
 }

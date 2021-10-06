@@ -23,7 +23,6 @@ class ServiceRequest extends FormRequest
      */
     public function rules()
     {
-        logger(request()->description);
         return [
             'name'           => 'required|string',
             'description'    => 'required|not_in:<p><br></p>',

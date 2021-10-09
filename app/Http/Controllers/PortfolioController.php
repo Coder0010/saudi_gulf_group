@@ -13,6 +13,16 @@ use App\Http\Requests\PortfolioRequest;
 class PortfolioController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -56,7 +66,7 @@ class PortfolioController extends Controller
             DB::rollback();
             Session::flash("danger", $e->getMessage());
         }
-        return redirect()->route('portfolios.index');
+        return redirect()->route('backend.portfolios.index');
     }
 
     /**
@@ -95,7 +105,7 @@ class PortfolioController extends Controller
             DB::rollback();
             Session::flash("danger", $e->getMessage());
         }
-        return redirect()->route('portfolios.index');
+        return redirect()->route('backend.portfolios.index');
     }
 
     /**

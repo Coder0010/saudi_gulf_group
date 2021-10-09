@@ -11,38 +11,17 @@
 
         <div class="overlay"></div>
 
-        <header class="d-flex align-content-center flex-wrap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7 d-flex align-content-center flex-wrap">
-                        <div class="header-content">
-                            <p>keep calm and relax</p>
-                            <h1>No more searching for companies</h1>
-                            <span>No more fuss, We provide you all the services your home needs, quality to your liking, at
-                                competitive prices</span>
-                            <a href="#" class="action">discover our services</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 d-flex align-content-center flex-wrap p-4">
-                        <div class="header-img">
-                            <img src="frontend/images/header-img.png">
-                            <a href="#" class="span1">Housekeeping</a>
-                            <a href="#" class="span2">Renting After Development</a>
-                            <a href="#" class="span3">Maintenance</a>
-                            <a href="#" class="span4">Real Estate Management</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        @include('flashs')
 
-        @include('frontend.sections.get-discount')
+        @include('frontend.sections.welcome-section')
 
-        @include('frontend.sections.story')
+        @include('frontend.sections.coupon-section')
 
-        @include('frontend.sections.services')
+        @include('frontend.sections.story-section')
 
-        <section class="integrated">
+        @include('frontend.sections.services-section')
+
+        {{-- <section class="integrated">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
@@ -74,11 +53,11 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
-        @include('frontend.sections.potfolio')
+        @include('frontend.sections.portfolios-section')
 
-        <section class="video">
+        {{-- <section class="video">
             <video autoplay muted loop class="sg-video">
                 <source src="images/SG03.mp4" type="video/mp4">
             </video>
@@ -94,7 +73,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         @include('frontend.partials.footer')
 

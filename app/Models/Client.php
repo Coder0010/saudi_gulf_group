@@ -28,7 +28,7 @@ class Client extends Entity implements HasMedia
      *
      * @var array
      */
-    protected $appends = ['image_url'];
+    protected $appends = ['image'];
 
     // /**
     //  * Bootstrap the model and its traits.

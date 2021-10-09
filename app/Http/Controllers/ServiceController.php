@@ -14,6 +14,16 @@ use Facades\App\Libraries\MediaLibrary;
 class ServiceController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -59,7 +69,7 @@ class ServiceController extends Controller
             DB::rollback();
             Session::flash("danger", $e->getMessage());
         }
-        return redirect()->route('services.index');
+        return redirect()->route('backend.services.index');
     }
 
     /**
@@ -98,7 +108,7 @@ class ServiceController extends Controller
             DB::rollback();
             Session::flash("danger", $e->getMessage());
         }
-        return redirect()->route('services.index');
+        return redirect()->route('backend.services.index');
     }
 
     /**

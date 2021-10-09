@@ -15,6 +15,16 @@ use Facades\App\Libraries\MediaLibrary;
 class ClientController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -58,7 +68,7 @@ class ClientController extends Controller
             DB::rollback();
             Session::flash("danger", $e->getMessage());
         }
-        return redirect()->route('clients.index');
+        return redirect()->route('backend.clients.index');
     }
 
     /**
@@ -97,7 +107,7 @@ class ClientController extends Controller
             DB::rollback();
             Session::flash("danger", $e->getMessage());
         }
-        return redirect()->route('clients.index');
+        return redirect()->route('backend.clients.index');
     }
 
     /**

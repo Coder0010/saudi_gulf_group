@@ -8,7 +8,7 @@
                     <div class="card-header">create client</div>
                     <div class="card-body p-0">
                         @include('backend.clients.form',[
-                            'route' => route('clients.store'),
+                            'route' => route('backend.clients.store'),
                             'entity'  => old()
                         ])
                     </div>

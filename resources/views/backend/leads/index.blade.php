@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header d-flex align-content-center justify-content-between">
                         <span>leads</span>
-                        <a href="{{ route('leads.create') }}">create</a>
+                        <a href="{{ route('backend.leads.create') }}">create</a>
                     </div>
                     <div class="card-body p-0">
                         @include('backend.leads.table')

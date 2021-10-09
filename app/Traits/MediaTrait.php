@@ -21,7 +21,7 @@ trait MediaTrait
      *
      * @return bool
      */
-    public function getImageUrlAttribute()
+    public function getImageAttribute()
     {
         if($this->getModelMedia()){
             return $this->getModelMedia();

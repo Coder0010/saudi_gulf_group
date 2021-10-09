@@ -5,7 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    @if (app()->isProduction())
+        <title>{{ config('app.name') }}</title>
+    @else
+        <title>backend</title>
+    @endif
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="{{ asset('backend/compiled.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -15,7 +19,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}">
+                <a class="navbar-brand" href="{{ route('backend.index') }}">
                     {{ config('app.name') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -29,13 +33,13 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('clients.index') }}">clients</a>
+                                <a class="nav-link" href="{{ route('backend.clients.index') }}">clients</a>
                             </li><!-- clients -->
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('portfolios.index') }}">portfolios</a>
+                                <a class="nav-link" href="{{ route('backend.portfolios.index') }}">portfolios</a>
                             </li><!-- portfolios -->
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('services.index') }}">services</a>
+                                <a class="nav-link" href="{{ route('backend.services.index') }}">services</a>
                             </li><!-- services -->
                         @endauth
                     </ul>
@@ -44,15 +48,15 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            @if (Route::has('login'))
+                            @if (Route::has('backend.login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('backend.login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            @if (Route::has('backend.register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('backend.register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -63,12 +67,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    <a class="dropdown-item" href="{{ route('backend.logout') }}" onclick="event.preventDefault();
                                                              document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    <form id="logout-form" action="{{ route('backend.logout') }}" method="POST"
                                         class="d-none">
                                         @csrf
                                     </form>

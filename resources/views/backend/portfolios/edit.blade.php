@@ -8,7 +8,7 @@
                     <div class="card-header">edit {{ $entity->name }} portfolio</div>
                     <div class="card-body p-0">
                         @include('backend.portfolios.form',[
-                            'route'       => route('portfolios.update', $entity),
+                            'route'       => route('backend.portfolios.update', $entity),
                             'requestType' => 'patch',
                             'entity'      => $entity,
                         ])

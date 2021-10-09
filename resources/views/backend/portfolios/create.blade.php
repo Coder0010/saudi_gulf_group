@@ -8,7 +8,7 @@
                     <div class="card-header">create portfolio</div>
                     <div class="card-body p-0">
                         @include('backend.portfolios.form',[
-                            'route'  => route('portfolios.store'),
+                            'route'  => route('backend.portfolios.store'),
                             'entity' => old()
                         ])
                     </div>

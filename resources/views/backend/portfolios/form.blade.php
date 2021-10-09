@@ -13,7 +13,7 @@
         <label for="image">image</label>
         <input type="file" name="image" id="image" class="form-control">
     </div><!-- image -->
-    @if ($entity && in_array('image', $entity))
+    @if ($entity && isset($entity['image']))
         <div class="form-group col-md-12">
             <img src="{{ $entity['image'] }}" width="100%" height="100px"/>
         </div>

@@ -8,7 +8,7 @@
                     <div class="card-header">edit {{ $entity->name }} service</div>
                     <div class="card-body p-0">
                         @include('backend.services.form',[
-                            'route'       => route('services.update', $entity),
+                            'route'       => route('backend.services.update', $entity),
                             'requestType' => 'patch',
                             'entity'      => $entity,
                         ])

@@ -1,6 +1,6 @@
 <nav id="nav">
     <ul class="main">
-        <li><a href="route('index')">Home</a></li>
+        <li><a href="{{ route('frontend.index') }}">Home</a></li>
         <li><a href="route('story')">Our story</a></li>
         <li><a href="route('services')">Services</a></li>
         <li><a href="route('portfolio')">Portfolio</a></li>

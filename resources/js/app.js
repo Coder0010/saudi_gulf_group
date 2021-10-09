@@ -1,8 +1,8 @@
 'use strict';
 
-function createEditor(id) {
-    if ($(`#${id}`).length) {
-        new Quill(`#${id}`, {
+function createEditor(inputID, inputName = 'description') {
+    if ($(`#${inputID}`).length) {
+        new Quill(`#${inputID}`, {
             modules: {
                 toolbar: quillToolbarOptions
             },
@@ -11,8 +11,8 @@ function createEditor(id) {
         });
         $("form").submit(function (e) {
             $(this).append(
-                "<textarea name='description' style='display:none'>"
-                    + document.querySelector(`#${id}`).children[0].innerHTML +
+                "<textarea name='"+ inputName +"' style='display:none'>"
+                    + document.querySelector(`#${inputID}`).children[0].innerHTML +
                 "</textarea>"
             );
         });
@@ -48,8 +48,13 @@ $(document).ready(function () {
         }],
     ];
     createEditor('description_editor')
+    createEditor('welcome_section_description_editor')
+    createEditor('coupon_section_description_editor')
+    createEditor('story_section_description_editor')
+    createEditor('service_section_description_editor')
+    createEditor('portfolio_section_description_editor')
 
     if ($(".select-2").length) {
-        $(".select-2").select2({ width: "100%" });
+        $(".select-2").select2({ width: "100%" , maximumSelectionLength: 4 });
     }
 });

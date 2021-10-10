@@ -21,6 +21,10 @@
 Route::group(['as' => 'frontend.'], function () {
     Route::get('/', 'FrontendController@index')->name('index');
     Route::post('coupons/request', 'FrontendController@couponRequest')->name('coupons.request');
+    Route::get('portfolios', 'FrontendController@portfoliosIndex')->name('portfolios.index');
+    Route::get('portfolios/show/{portfolio}', 'FrontendController@portfoliosShow')->name('portfolios.show');
+    Route::get('services', 'FrontendController@servicesIndex')->name('services.index');
+    Route::get('services/show/{service}', 'FrontendController@servicesShow')->name('services.show');
 });
 
 Route::group(['as' => 'backend.', 'prefix' => 'backend'], function () {

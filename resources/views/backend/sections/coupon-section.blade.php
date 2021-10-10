@@ -1,12 +1,13 @@
 <div class="card">
     <div class="card-header" id="{{ $couponSection->type }}">
         <h2 class="mb-0">
-            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-{{ $couponSection->type }}" aria-expanded="true" aria-controls="collapse-{{ $couponSection->type }}">
+            <button class="collapsed btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-{{ $couponSection->type }}" aria-expanded="false" aria-controls="collapse-{{ $couponSection->type }}">
                 {{ $couponSection->type }}
+                <i class="fa float-right" aria-hidden="true"></i>
             </button>
         </h2>
     </div>
-    <div id="collapse-{{ $couponSection->type }}" class="collapse {{ $isShowed }}" aria-labelledby="{{ $couponSection->type }}" data-parent="#accordionExample">
+    <div id="collapse-{{ $couponSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }}" aria-labelledby="{{ $couponSection->type }}" data-parent="#accordionExample">
         <div class="card-body">
             <form method="POST" action="{{ route('backend.sections.update', $couponSection->type) }}" class="form-row" enctype='multipart/form-data'>
                 @csrf

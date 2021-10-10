@@ -6,6 +6,8 @@ use DB;
 use Session;
 use Exception;
 use App\Models\Lead;
+use App\Models\Service;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -41,4 +43,27 @@ class FrontendController extends Controller
         return redirect()->back();
     }
 
+    public function portfoliosIndex()
+    {
+        return view('frontend.portfolios.index');
+    }
+
+    public function portfoliosShow(Portfolio $portfolio)
+    {
+        return view('frontend.portfolios.show',[
+            'portfolio' => $portfolio
+        ]);
+    }
+
+    public function servicesIndex()
+    {
+        return view('frontend.services.index');
+    }
+
+    public function servicesShow(Service $service)
+    {
+        return view('frontend.services.show',[
+            'service' => $service
+        ]);
+    }
 }

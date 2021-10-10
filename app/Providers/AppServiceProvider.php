@@ -62,13 +62,6 @@ class AppServiceProvider extends ServiceProvider
         view()->composer(['backend.sections.welcome-section'], function ($view) {
             $view->with('selected_services', Section::whereType('welcome-section')->first()->services()->pluck('itemable_id'));
         });
-
-        view()->composer(['backend.sections.services-section'], function ($view) {
-            $view->with('serviceSection', Section::whereType('service-section')->first());
-        });
-        view()->composer(['backend.sections.portfolios-section'], function ($view) {
-            $view->with('portfolioSection', Section::whereType('portfolio-section')->first());
-        });
     }
 
     public function frontendComposer()
@@ -101,5 +94,8 @@ class AppServiceProvider extends ServiceProvider
             $view->with('portfolioSection', Section::whereType('portfolio-section')->first());
         });
 
+        $this->sharePortfolios('frontend.portfolios.index');
+
+        $this->shareServices('frontend.services.index');
     }
 }

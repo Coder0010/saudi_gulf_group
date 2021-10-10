@@ -16,6 +16,8 @@ class CreateLeadsTable extends Migration
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
             $table->string('type')->nullable();
+            $table->string('subject')->nullable();
+            $table->text('data')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Session;
 use Exception;
+use App\Models\Lead;
 use App\Models\Section;
 use Illuminate\Http\Request;
 
@@ -28,6 +29,8 @@ class BackendController extends Controller
     public function index()
     {
         return view('backend.sections.index',[
+            'generalSection'   => Section::whereType('general-section')->first(),
+            'contactUsSection' => Section::whereType('contactUs-section')->first(),
             'welcomeSection'   => Section::whereType('welcome-section')->first(),
             'couponSection'    => Section::whereType('coupon-section')->first(),
             'storySection'     => Section::whereType('story-section')->first(),
@@ -61,4 +64,10 @@ class BackendController extends Controller
         return redirect()->back();
     }
 
+    public function leadsIndex()
+    {
+        return view('backend.leads.index',[
+            'leads'   => Lead::latest()->get(),
+        ]);
+    }
 }

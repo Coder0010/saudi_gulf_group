@@ -16,12 +16,14 @@
         <div class="card">
             <div class="card-header bg-info text-white">
                 <h2 class="card-title m-0">
-                    header
+                    home sections
                 </h2>
             </div>
             <div class="card-body">
                 <div class="accordion" id="accordionExample">
-                    @include("backend.sections.welcome-section", ["isShowed" => true])
+                    @include("backend.sections.general-section", ["isShowed" => true])
+                    @include("backend.sections.contact-us-section", ["isShowed" => true])
+                    @include("backend.sections.welcome-section")
                     @include("backend.sections.coupon-section")
                     @include("backend.sections.story-section")
                     @include("backend.sections.services-section")

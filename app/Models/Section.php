@@ -22,6 +22,16 @@ class Section extends Entity implements HasMedia
         'type',
         'name',
         'description',
+        'data'
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'data' => 'array',
     ];
 
     /**

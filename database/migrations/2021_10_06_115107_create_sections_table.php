@@ -18,6 +18,7 @@ class CreateSectionsTable extends Migration
             $table->string('type');
             $table->string('name');
             $table->text('description');
+            $table->text('data')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -15,11 +15,11 @@
                 <tbody>
                     @forelse ($leads as $lead)
                         <tr>
-                            <th scope="row">type</th>
-                            <td>name</td>
-                            <td>phone</td>
-                            <td>email</td>
-                            <td>description</td>
+                            <th scope="row">{{ $lead->type }}</th>
+                            <td>{{ $lead->name }}</td>
+                            <td>{{ $lead->phone }}</td>
+                            <td>{{ $lead->email }}</td>
+                            <td>{{ $lead->description }}</td>
                         </tr>
                     @empty
                         <tr>

@@ -48,11 +48,7 @@
                     </div>
                 </div>
             </div>
-            <div class="interest">
-                <img src="images/interest.png">
-                <h1>Interested?</h1>
-                <a href="#">Contact us</a>
-            </div>
+            @include('frontend.partials.intersed')
         </section>
 
         @include('frontend.partials.footer')

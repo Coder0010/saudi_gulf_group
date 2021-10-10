@@ -25,6 +25,8 @@ Route::group(['as' => 'frontend.'], function () {
     Route::get('portfolios/show/{portfolio}', 'FrontendController@portfoliosShow')->name('portfolios.show');
     Route::get('services', 'FrontendController@servicesIndex')->name('services.index');
     Route::get('services/show/{service}', 'FrontendController@servicesShow')->name('services.show');
+    Route::get('contact-us', 'FrontendController@contactUs')->name('contact-us');
+    Route::post('contact-us/request', 'FrontendController@contactUsRequest')->name('contact-us.request');
 });
 
 Route::group(['as' => 'backend.', 'prefix' => 'backend'], function () {
@@ -38,4 +40,5 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend'], function () {
     Route::resource('services', 'ServiceController');
     Route::resource('clients', 'ClientController');
     Route::resource('portfolios', 'PortfolioController');
+    Route::get('leads', 'BackendController@leadsIndex')->name('leads.index');
 });

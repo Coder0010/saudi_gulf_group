@@ -66,6 +66,14 @@ class AppServiceProvider extends ServiceProvider
 
     public function frontendComposer()
     {
+        view()->composer(['frontend.partials.footer', 'frontend.partials.header'], function ($view) {
+            $view->with('generalSection', Section::whereType('general-section')->first());
+        });
+
+        view()->composer(['frontend.contact-us'], function ($view) {
+            $view->with('contactUsSection', Section::whereType('contactUs-section')->first());
+        });
+
         view()->composer(['frontend.sections.welcome-section'], function ($view) {
             $tempServices = Section::whereType('welcome-section')->first()->services;
             $results = [];
@@ -97,5 +105,7 @@ class AppServiceProvider extends ServiceProvider
         $this->sharePortfolios('frontend.portfolios.index');
 
         $this->shareServices('frontend.services.index');
+
+        $this->shareServices('frontend.contact-us');
     }
 }

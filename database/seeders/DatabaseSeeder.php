@@ -30,9 +30,11 @@ class DatabaseSeeder extends Seeder
             'name'        => 'contactUs-section',
             'description' => 'Saudi Gulf Group was established 15 years ago in Riyadh – the Kingdom of Saudi Arabia as a company specialized in the field of contracting, restoration, final finishing, and maintenance works',
             'data'        => [
-                'address'   => '56 Makram Ebaid St. Nasr City, Banque Misr Building - 10th Floor',
-                'work_time' => 'Sun to Thu: 09:00am to 05:00pm',
-                'phone_1'   => '+2-0100011333',
+                'address'    => '56 Makram Ebaid St. Nasr City, Banque Misr Building - 10th Floor',
+                'work_time'  => 'Sun to Thu: 09:00am to 05:00pm',
+                'phone_1'    => '+2-0100011333',
+                'phone_2'    => '2-02-2322222',
+                'iframe_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.166015921346!2d31.347292884253346!3d30.06077542475458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583f9a722d8d4f%3A0xa9b1a81a4c1b2330!2sSaudi%20Gulf%20Group!5e0!3m2!1sar!2seg!4v1624456587480!5m2!1sar!2seg'
             ]
         ]);
         \App\Models\Section::factory(1)->type('welcome-section')->create([

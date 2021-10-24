@@ -22,7 +22,7 @@
             <div class="card-body">
                 <div class="accordion" id="accordionExample">
                     @include("backend.sections.general-section", ["isShowed" => true])
-                    @include("backend.sections.contact-us-section", ["isShowed" => true])
+                    @include("backend.sections.contact-us-section")
                     @include("backend.sections.welcome-section")
                     @include("backend.sections.coupon-section")
                     @include("backend.sections.story-section")

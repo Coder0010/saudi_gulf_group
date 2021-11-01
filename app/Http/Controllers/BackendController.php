@@ -28,8 +28,6 @@ class BackendController extends Controller
      */
     public function index()
     {
-        Session::flash("type", "story-page-four-section");
-
         return view('backend.sections.index',[
             'generalSection'   => Section::whereType('general-section')->first(),
             'contactUsSection' => Section::whereType('contactUs-section')->first(),

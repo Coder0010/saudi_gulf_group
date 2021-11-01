@@ -47,14 +47,14 @@ $(document).ready(function () {
             'indent': '+1'
         }],
     ];
-    createEditor('description_editor')
-    createEditor('welcome_section_description_editor')
-    createEditor('coupon_section_description_editor')
-    createEditor('story_section_description_editor')
-    createEditor('service_section_description_editor')
-    createEditor('portfolio_section_description_editor')
-    createEditor('general_section_description_editor')
-    createEditor('contact_us_section_description_editor')
+    // createEditor('description_editor')
+    // createEditor('welcome_section_description_editor')
+    // createEditor('coupon_section_description_editor')
+    // createEditor('story_section_description_editor')
+    // createEditor('service_section_description_editor')
+    // createEditor('portfolio_section_description_editor')
+    // createEditor('general_section_description_editor')
+    // createEditor('contact_us_section_description_editor')
 
     if ($(".select-2").length) {
         $(".select-2").select2({ width: "100%" , maximumSelectionLength: 4 });

@@ -16,9 +16,14 @@
                     <label for="name">name</label>
                     <input type="text" name="name" id="name" class="form-control" placeholder="name" value="{{ $storySection->name }}">
                 </div><!-- name -->
+                <div class="form-group col-md-12">
+                    <label for="sub_name">sub name</label>
+                    <input type="text" name="sub_name" id="sub_name" class="form-control" placeholder="sub name" value="{{ $storySection->sub_name }}">
+                </div><!-- sub_name -->
                 <div class="form-group col-md-12 h-100">
                     <label for="description">description</label>
-                    <div id="story_section_description_editor">{!! $storySection->description !!}</div>
+                    {{-- <div id="story_section_description_editor">{!! $storySection->description !!}</div> --}}
+                    <textarea name="description" id="description" class="form-control" rows="5">{{ $storySection->description }}</textarea>
                 </div><!-- description -->
                 <button class="btn btn-success btn-block" type="submit">Submit</button>
             </form>

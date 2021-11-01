@@ -104,7 +104,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->sharePortfolios('frontend.portfolios.index');
 
-        $this->shareServices('frontend.services.index');
+        $this->shareServices('frontend.partials.navbar');
 
         $this->shareServices('frontend.contact-us');
     }

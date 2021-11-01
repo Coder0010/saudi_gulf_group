@@ -3,9 +3,8 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="head-title">
-                    <span>{{ $serviceSection->name }}</span>
-                    <br>
-                    <p> {!! $serviceSection->description !!} </p>
+                    <span>{{ $serviceSection->sub_name }}</span>
+                    <h3> {!! $serviceSection->name !!} </h3>
                 </div>
             </div>
         </div>

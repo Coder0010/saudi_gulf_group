@@ -7,7 +7,8 @@
     </div><!-- name -->
     <div class="form-group col-md-12 h-100">
         <label for="description">description</label>
-        <div id="description_editor">{!! $entity ? $entity['description'] : '' !!}</div>
+        {{-- <div id="description_editor">{!! $entity ? $entity ? $entity['description'] : '' : '' !!}</div> --}}
+        <textarea name="description" id="description" class="form-control" rows="5">{{ $entity ? $entity['description'] : '' }}</textarea>
     </div><!-- description -->
     <div class="form-group col-md-12">
         <label for="image">image</label>

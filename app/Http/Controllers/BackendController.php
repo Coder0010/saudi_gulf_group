@@ -42,16 +42,19 @@ class BackendController extends Controller
     public function updateSection(Request $request)
     {
         $this->validate(request(), [
-            'name'        => 'required|string',
-            'description' => 'required|string',
-            'services'    => 'required_if:type,welcome_section|array',
-            'services.*'  => 'required|integer|exists:services,id,deleted_at,NULL',
+            'name'            => 'required|string',
+            'sub_name'        => 'sometimes|nullable|string',
+            'description'     => 'sometimes|nullable|string',
+            'sub_description' => 'sometimes|nullable|string',
+            'services'        => 'required_if:type,welcome_section|array',
+            'services.*'      => 'required|integer|exists:services,id,deleted_at,NULL',
         ]);
         DB::beginTransaction();
         try {
             $entity = Section::whereType($request->type)->firstOrFail();
             if ($entity) {
                 $entity->update($request->all());
+                Session::flash("type", $request->type);
                 Session::flash("success", " [ $request->type ] updated successfully");
             } else {
                 Session::flash("danger", "failed to update record");

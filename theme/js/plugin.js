@@ -58,6 +58,24 @@ $('.portfolio-item-carousel').owlCarousel({
     }
 });
 
+$('.clients-carousel').owlCarousel({
+    center: true,
+    loop: true,
+    margin: 10,
+    responsive: {
+        0: {
+            items: 1,
+        },
+        600: {
+            items: 4,
+        },
+        1000: {
+            items: 7,
+        },
+
+    }
+});
+
 $('.menu, .overlay').click(function () {
     $('.menu').toggleClass('clicked');
 

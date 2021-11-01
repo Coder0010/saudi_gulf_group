@@ -21,7 +21,9 @@ class Section extends Entity implements HasMedia
     protected $fillable = [
         'type',
         'name',
+        'sub_name',
         'description',
+        'sub_description',
         'data'
     ];
 

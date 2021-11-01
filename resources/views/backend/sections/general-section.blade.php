@@ -18,7 +18,8 @@
                 </div><!-- name -->
                 <div class="form-group col-md-12 h-100">
                     <label for="description">description</label>
-                    <div id="general_section_description_editor">{!! $generalSection->description !!}</div>
+                    {{-- <div id="general_section_description_editor">{!! $generalSection->description !!}</div> --}}
+                    <textarea name="description" id="description" class="form-control" rows="5">{{ $generalSection->description }}</textarea>
                 </div><!-- description -->
                 @foreach (['facebook', 'instagram'] as $item)
                     <div class="form-group col-md-12">

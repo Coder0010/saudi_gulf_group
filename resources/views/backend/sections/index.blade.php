@@ -21,13 +21,9 @@
             </div>
             <div class="card-body">
                 <div class="accordion" id="accordionExample">
-                    @include("backend.sections.general-section", ["isShowed" => true])
-                    @include("backend.sections.contact-us-section")
-                    @include("backend.sections.welcome-section")
-                    @include("backend.sections.coupon-section")
-                    @include("backend.sections.story-section")
-                    @include("backend.sections.services-section")
-                    @include("backend.sections.portfolios-section")
+                    @foreach (["welcome-section", "coupon-section", "story-section", "services-section", "portfolios-section", "general-section", "contact-us-section"] as $item)
+                        @include("backend.sections.${item}", ["isShowed" => Session::get("type") == $item ? 'isShowed':''])
+                    @endforeach
                 </div>
             </div>
         </div>

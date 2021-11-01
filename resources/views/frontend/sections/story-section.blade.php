@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-4  d-flex align-content-center flex-wrap">
                 <div class="story-img">
-                    <span>{{ $storySection->name }}</span>
+                    <span> {{ $storySection->sub_name }} </span>
                     <img src="frontend/images/undraw_Working_re_ddwy.svg">
                 </div>
             </div>

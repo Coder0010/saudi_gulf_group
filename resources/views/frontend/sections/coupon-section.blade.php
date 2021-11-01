@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <span>{{ $couponSection->name }}</span>
-                <p> {!! $couponSection->description !!} </p>
+                <h4> {!! $couponSection->sub_name !!} </h4>
             </div>
             <div class="col-lg-4 d-flex align-content-center flex-wrap">
                 <div class="action">

@@ -18,7 +18,8 @@
                 </div><!-- name -->
                 <div class="form-group col-md-12 h-100">
                     <label for="description">description</label>
-                    <div id="contact_us_section_description_editor">{!! $contactUsSection->description !!}</div>
+                    {{-- <div id="contact_us_section_description_editor">{!! $contactUsSection->description !!}</div> --}}
+                    <textarea name="description" id="description" class="form-control" rows="5">{{ $contactUsSection->description }}</textarea>
                 </div><!-- description -->
                 <div class="form-group col-md-12">
                     <label for="address">address</label>

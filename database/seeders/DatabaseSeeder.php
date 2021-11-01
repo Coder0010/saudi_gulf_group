@@ -38,16 +38,22 @@ class DatabaseSeeder extends Seeder
             ]
         ]);
         \App\Models\Section::factory(1)->type('welcome-section')->create([
-            'name' => 'welcome-section'
+            'name'        => 'KEEP CALM AND RELAX',
+            'sub_name'    => 'No more searching for companies',
+            'description' => 'No more fuss, We provide you all the services your home needs, quality to your liking, at competitive prices'
         ]);
         \App\Models\Section::factory(1)->type('coupon-section')->create([
-            'name' => 'coupon-section'
+            'name'     => 'WELCOME SUMMER',
+            'sub_name' => 'Get 50% Discount on Housekeeping in North coast',
         ]);
         \App\Models\Section::factory(1)->type('story-section')->create([
-            'name' => 'story-section'
+            'name'        => 'Saudi Gulf Group',
+            'sub_name'    => 'Our story',
+            'description' => 'was established 15 years ago in Riyadh – the Kingdom of Saudi Arabia as a company specialized in the field of contracting, restoration, final finishing, and maintenance works. We also provide our clients with architectural design, structural design, interior design, and decorations. We have a staff of workers who are specialized in this field, such as civil engineers, management engineers, maintenance workers, and trained manpower. Throughout our history, we have provided all services in the fields of project planning, construction, and restoration, and we have implemented various projects, including palaces, private villas, malls, restaurants, cafeterias, hospitals, administrative headquarters, schools, and public facilities.'
         ]);
         \App\Models\Section::factory(1)->type('service-section')->create([
-            'name' => 'service-section'
+            'name'     => 'our services',
+            'sub_name' => 'TRUST WITH US, WE CA DO THE BEST',
         ]);
         \App\Models\Section::factory(1)->type('portfolio-section')->create([
             'name' => 'portfolio-section'

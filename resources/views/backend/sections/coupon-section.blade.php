@@ -16,10 +16,10 @@
                     <label for="name">name</label>
                     <input type="text" name="name" id="name" class="form-control" placeholder="name" value="{{ $couponSection->name }}">
                 </div><!-- name -->
-                <div class="form-group col-md-12 h-100">
-                    <label for="description">description</label>
-                    <div id="coupon_section_description_editor">{!! $couponSection->description !!}</div>
-                </div><!-- description -->
+                <div class="form-group col-md-12">
+                    <label for="sub_name">sub name</label>
+                    <input type="text" name="sub_name" id="sub_name" class="form-control" placeholder="sub name" value="{{ $couponSection->sub_name }}">
+                </div><!-- sub_name -->
                 <button class="btn btn-success btn-block" type="submit">Submit</button>
             </form>
         </div>

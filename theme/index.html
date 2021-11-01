@@ -14,20 +14,14 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
-		integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css"
-		href="https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css">
 
 	<!-- Fonts -->
-	<link
-		href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link
-		href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 	<!-- CSS Files -->
 	<link rel="stylesheet" href="css/ekko-lightbox.css">
@@ -61,7 +55,14 @@
 		<ul class="main">
 			<li><a href="index.html">Home</a></li>
 			<li><a href="story.html">Our story</a></li>
-			<li><a href="services.html">Services</a></li>
+			<!-- Edit Here -->
+			<li>
+				<a data-toggle="collapse" href="#submenu1" role="button" aria-expanded="false" aria-controls="submenu1">Services</a>
+				<ul class="collapse" id="submenu1">
+					<li><a href="story.html">seb service</a></li>
+				</ul>
+			</li>
+			<!-- Edit Here -->
 			<li><a href="portfolio.html">Portfolio</a></li>
 			<li><a href="portfolio-item.html">Portfolio - item</a></li>
 			<li><a href="prices.html">Prices</a></li>
@@ -132,10 +133,12 @@
 				<div class="col-lg-5 d-flex align-content-center flex-wrap p-4">
 					<div class="header-img">
 						<img src="images/header-img.png">
-						<a href="#" s="span1">Housekeeping</a>
-						<a href="#" s="span2">Renting After Development</a>
-						<a href="#" s="span3">Maintenance</a>
-						<a href="#" s="span4">Real Estate Management</a>
+						<!-- Edit Here -->
+						<a href="#" class="span1">Housekeeping</a>
+						<a href="#" class="span2">Renting After Development</a>
+						<a href="#" class="span3">Maintenance</a>
+						<a href="#" class="span4">Real Estate Management</a>
+						<!-- Edit Here -->
 					</div>
 				</div>
 			</div>
@@ -430,6 +433,20 @@
 			</div>
 		</div>
 	</footer>
+
+    <div id="qrcode"></div>
+
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+    <script type="text/javascript">
+        const qrcode = new QRCode(document.getElementById('qrcode'), {
+        text: 'https://sg-egypt.com/',
+        width: 1028,
+        height: 1028,
+        colorDark : '#000',
+        colorLight : '#fff',
+        correctLevel : QRCode.CorrectLevel.H
+        });
+    </script>
 
 	<!-- JS -->
 	<script src="js/jquery.js"></script>

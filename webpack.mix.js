@@ -22,6 +22,7 @@ mix
         'theme/css/select2.css',
     ], 'public/frontend/compiled.css')
     .scripts([
+        'theme/js/qrcode.min.js',
         'theme/js/jquery.js',
         'theme/js/popper.min.js',
         'theme/js/bootstrap.min.js',

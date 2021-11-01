@@ -18,7 +18,8 @@
                 </div><!-- name -->
                 <div class="form-group col-md-12 h-100">
                     <label for="description">description</label>
-                    <div id="portfolio_section_description_editor">{!! $portfolioSection->description !!}</div>
+                    {{-- <div id="portfolio_section_description_editor">{!! $portfolioSection->description !!}</div> --}}
+                    <textarea name="description" id="description" class="form-control" rows="5">{{ $portfolioSection->description }}</textarea>
                 </div><!-- description -->
                 <button class="btn btn-success btn-block" type="submit">Submit</button>
             </form>

@@ -2,12 +2,12 @@
     <div class="card-header" id="{{ $welcomeSection->type }}">
         <h2 class="mb-0">
             <button class="collapsed  btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-{{ $welcomeSection->type }}" aria-expanded="true" aria-controls="collapse-{{ $welcomeSection->type }}">
-                {{ $welcomeSection->type }}
+                {{ str_replace('-', ' ', Str::title($welcomeSection->type)) }}
                 <i class="fa float-right" aria-hidden="true"></i>
             </button>
         </h2>
     </div>
-    <div id="collapse-{{ $welcomeSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }}" aria-labelledby="{{ $welcomeSection->type }}" data-parent="#accordionExample">
+    <div id="collapse-{{ $welcomeSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }}" aria-labelledby="{{ $welcomeSection->type }}" data-parent="#homeAccordion">
         <div class="card-body">
             <form method="POST" action="{{ route('backend.sections.update', $welcomeSection->type) }}" class="form-row" enctype='multipart/form-data'>
                 @csrf
@@ -22,7 +22,6 @@
                 </div><!-- sub_name -->
                 <div class="form-group col-md-12 h-100">
                     <label for="description">description</label>
-                    {{-- <div id="welcome_section_description_editor">{!! $welcomeSection->description !!}</div> --}}
                     <textarea name="description" id="description" class="form-control" rows="5">{{ $welcomeSection->description }}</textarea>
                 </div><!-- description -->
                 <div class="form-group col-md-12">

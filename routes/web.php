@@ -27,6 +27,7 @@ Route::group(['as' => 'frontend.'], function () {
     Route::get('services/show/{service}', 'FrontendController@servicesShow')->name('services.show');
     Route::get('contact-us', 'FrontendController@contactUs')->name('contact-us');
     Route::post('contact-us/request', 'FrontendController@contactUsRequest')->name('contact-us.request');
+    Route::get('our-story', 'FrontendController@ourStory')->name('our-story');
 });
 
 Route::group(['as' => 'backend.', 'prefix' => 'backend'], function () {

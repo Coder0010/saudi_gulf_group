@@ -107,5 +107,13 @@ class AppServiceProvider extends ServiceProvider
         $this->shareServices('frontend.partials.navbar');
 
         $this->shareServices('frontend.contact-us');
+
+        view()->composer(['frontend.our-story'], function ($view) {
+            $view->with('storyPageOneSection', Section::whereType('story-page-one-section')->first());
+            $view->with('storyPageTwoSection', Section::whereType('story-page-two-section')->first());
+            $view->with('storyPageThreeSection', Section::whereType('story-page-three-section')->first());
+            $view->with('storyPageFourSection', Section::whereType('story-page-four-section')->first());
+        });
+
     }
 }

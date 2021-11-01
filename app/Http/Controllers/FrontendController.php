@@ -72,6 +72,11 @@ class FrontendController extends Controller
         return view('frontend.contact-us');
     }
 
+    public function ourStory()
+    {
+        return view('frontend.our-story');
+    }
+
     public function contactUsRequest(Request $request)
     {
         $this->validate(request(), [

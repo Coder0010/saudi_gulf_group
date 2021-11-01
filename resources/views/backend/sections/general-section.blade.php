@@ -1,13 +1,13 @@
 <div class="card">
     <div class="card-header" id="{{ $generalSection->type }}">
         <h2 class="mb-0">
-            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-{{ $generalSection->type }}" aria-expanded="false" aria-controls="collapse-{{ $generalSection->type }}">
-                {{ $generalSection->type }}
+            <button class="collapsed btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-{{ $generalSection->type }}" aria-expanded="false" aria-controls="collapse-{{ $generalSection->type }}">
+                {{ str_replace('-', ' ', Str::title($generalSection->type)) }}
                 <i class="fa float-right" aria-hidden="true"></i>
             </button>
         </h2>
     </div>
-    <div id="collapse-{{ $generalSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }}" aria-labelledby="{{ $generalSection->type }}" data-parent="#accordionExample">
+    <div id="collapse-{{ $generalSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }}" aria-labelledby="{{ $generalSection->type }}" data-parent="#homeAccordion">
         <div class="card-body">
             <form method="POST" action="{{ route('backend.sections.update', $generalSection->type) }}" class="form-row" enctype='multipart/form-data'>
                 @csrf
@@ -18,7 +18,6 @@
                 </div><!-- name -->
                 <div class="form-group col-md-12 h-100">
                     <label for="description">description</label>
-                    {{-- <div id="general_section_description_editor">{!! $generalSection->description !!}</div> --}}
                     <textarea name="description" id="description" class="form-control" rows="5">{{ $generalSection->description }}</textarea>
                 </div><!-- description -->
                 @foreach (['facebook', 'instagram'] as $item)

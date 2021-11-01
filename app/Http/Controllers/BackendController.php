@@ -28,6 +28,8 @@ class BackendController extends Controller
      */
     public function index()
     {
+        Session::flash("type", "story-page-four-section");
+
         return view('backend.sections.index',[
             'generalSection'   => Section::whereType('general-section')->first(),
             'contactUsSection' => Section::whereType('contactUs-section')->first(),
@@ -36,6 +38,10 @@ class BackendController extends Controller
             'storySection'     => Section::whereType('story-section')->first(),
             'serviceSection'   => Section::whereType('service-section')->first(),
             'portfolioSection' => Section::whereType('portfolio-section')->first(),
+            'storyPageOneSection'   => Section::whereType('story-page-one-section')->first(),
+            'storyPageTwoSection'   => Section::whereType('story-page-two-section')->first(),
+            'storyPageThreeSection' => Section::whereType('story-page-three-section')->first(),
+            'storyPageFourSection'  => Section::whereType('story-page-four-section')->first(),
         ]);
     }
 

@@ -2,12 +2,12 @@
     <div class="card-header" id="{{ $portfolioSection->type }}">
         <h2 class="mb-0">
             <button class="collapsed btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-{{ $portfolioSection->type }}" aria-expanded="false" aria-controls="collapse-{{ $portfolioSection->type }}">
-                {{ $portfolioSection->type }}
+                {{ str_replace('-', ' ', Str::title($portfolioSection->type)) }}
                 <i class="fa float-right" aria-hidden="true"></i>
             </button>
         </h2>
     </div>
-    <div id="collapse-{{ $portfolioSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }}" aria-labelledby="{{ $portfolioSection->type }}" data-parent="#accordionExample">
+    <div id="collapse-{{ $portfolioSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }}" aria-labelledby="{{ $portfolioSection->type }}" data-parent="#homeAccordion">
         <div class="card-body">
             <form method="POST" action="{{ route('backend.sections.update', $portfolioSection->type) }}" class="form-row" enctype='multipart/form-data'>
                 @csrf
@@ -18,7 +18,6 @@
                 </div><!-- name -->
                 <div class="form-group col-md-12 h-100">
                     <label for="description">description</label>
-                    {{-- <div id="portfolio_section_description_editor">{!! $portfolioSection->description !!}</div> --}}
                     <textarea name="description" id="description" class="form-control" rows="5">{{ $portfolioSection->description }}</textarea>
                 </div><!-- description -->
                 <button class="btn btn-success btn-block" type="submit">Submit</button>

@@ -55,7 +55,7 @@
             </div>
         </section> --}}
 
-        @include('frontend.sections.portfolios-section')
+        {{-- @include('frontend.sections.portfolios-section') --}}
 
         {{-- <section class="video">
             <video autoplay muted loop class="sg-video">

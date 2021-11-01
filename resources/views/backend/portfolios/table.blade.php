@@ -16,13 +16,16 @@
                 <tr>
                     <th class="align-middle" scope="row">{{ $row->id }}</th>
                     <th class="align-middle">{{ $row->name }}</th>
-                    <td class="align-middle">{{ \Str::words(strip_tags($row->description), 20) }}</td>
+                    <td class="align-middle">{{ Str::words(strip_tags($row->description), 20) }}</td>
                     <td class="align-middle">{{ $row->category ?? '-' }}</td>
                     <td class="align-middle">{{ $row->location ?? '-' }}</td>
                     <td class="align-middle">
                         <img src="{{ $row->image }}" width="100" height="100">
                     </td>
                     <td class="align-middle">
+                        <a href="{{ route('frontend.portfolios.show', $row) }}">
+                            <i class="fa fa-eye fa-fw fa-1x"></i>
+                        </a>
                         <a href="{{ route('backend.portfolios.edit', $row) }}">
                             <i class="fa fa-edit fa-fw fa-1x"></i>
                         </a>

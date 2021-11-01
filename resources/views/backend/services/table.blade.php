@@ -19,6 +19,9 @@
                         <img src="{{ $row->image }}" width="100" height="100">
                     </td>
                     <td class="align-middle">
+                        <a href="{{ route('frontend.services.show', $row) }}">
+                            <i class="fa fa-eye fa-fw fa-1x"></i>
+                        </a>
                         <a href="{{ route('backend.services.edit', $row) }}">
                             <i class="fa fa-edit fa-fw fa-1x"></i>
                         </a>

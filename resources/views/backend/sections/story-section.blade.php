@@ -2,12 +2,12 @@
     <div class="card-header" id="{{ $storySection->type }}">
         <h2 class="mb-0">
             <button class="collapsed btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-{{ $storySection->type }}" aria-expanded="false" aria-controls="collapse-{{ $storySection->type }}">
-                {{ $storySection->type }}
+                {{ str_replace('-', ' ', Str::title($storySection->type)) }}
                 <i class="fa float-right" aria-hidden="true"></i>
             </button>
         </h2>
     </div>
-    <div id="collapse-{{ $storySection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }}" aria-labelledby="{{ $storySection->type }}" data-parent="#accordionExample">
+    <div id="collapse-{{ $storySection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }}" aria-labelledby="{{ $storySection->type }}" data-parent="#homeAccordion">
         <div class="card-body">
             <form method="POST" action="{{ route('backend.sections.update', $storySection->type) }}" class="form-row" enctype='multipart/form-data'>
                 @csrf
@@ -22,7 +22,6 @@
                 </div><!-- sub_name -->
                 <div class="form-group col-md-12 h-100">
                     <label for="description">description</label>
-                    {{-- <div id="story_section_description_editor">{!! $storySection->description !!}</div> --}}
                     <textarea name="description" id="description" class="form-control" rows="5">{{ $storySection->description }}</textarea>
                 </div><!-- description -->
                 <button class="btn btn-success btn-block" type="submit">Submit</button>

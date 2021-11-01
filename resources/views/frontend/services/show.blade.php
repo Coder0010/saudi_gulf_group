@@ -46,20 +46,39 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h3>Our work Related with this service</h3>
+                                <h3>Related portfolios</h3>
                             </div>
                         </div>
                         <div class="owl-carousel portfolio-carousel">
                             @foreach ($service->portfolios as $portfolio)
-                                <div class="col-lg-4">
-                                    <a href="{{ route('frontend.portfolios.show', $portfolio) }}" class="prtfolio-item">
-                                        <img src="{{ $portfolio->image }}" class="img-fluid">
-                                        <span>{{ $portfolio->category }}</span>
-                                        <div class="item-info">
-                                            <h3>{{ $portfolio->name }}</h3>
-                                            <p>{{ $portfolio->location }}</p>
-                                        </div>
-                                    </a>
+                                <a href="{{ route('frontend.portfolios.show', $portfolio) }}" class="prtfolio-item">
+                                    <img src="{{ $portfolio->image }}" class="img-fluid">
+                                    <span>{{ $portfolio->category }}</span>
+                                    <div class="item-info">
+                                        <h3>{{ $portfolio->name }}</h3>
+                                        <p>{{ $portfolio->location }}</p>
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            @endif
+            @if (count($service->clients))
+                <div class="related-portfolio pt-0">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h3>Related clients</h3>
+                            </div>
+                        </div>
+                        <div class="owl-carousel clients-carousel">
+                            @foreach ($service->clients as $client)
+                                <div class="card">
+                                    <img src="{{ $client->image }}" class="card-img-top">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">{{ $client->name }}</h5>
+                                    </div>
                                 </div>
                             @endforeach
                         </div>

@@ -63,5 +63,26 @@ class DatabaseSeeder extends Seeder
         \App\Models\Portfolio::factory(5)->create();
         \App\Models\Service::factory(5)->create();
 
+        \App\Models\Section::factory(1)->type('story-page-one-section')->create([
+            'name'        => 'Video',
+        ]);
+        \App\Models\Section::factory(1)->type('story-page-two-section')->create([
+            'name'            => 'Our Story',
+            'description'     => 'Saudi Gulf Group was established 15 years ago in Riyadh – the Kingdom of Saudi Arabia as a company specialized in the field of contracting, restoration, final finishing, and maintenance works. We also provide our clients with architectural design, structural design, interior design, and decorations. We have a staff of workers who are specialized in this field, such as civil engineers, management engineers, maintenance workers, and trained manpower.',
+            'sub_description' => 'Throughout our history, we have provided all services in the fields of project planning, construction, and restoration, and we have implemented various projects, including palaces, private villas, malls, restaurants, cafeterias, hospitals, administrative headquarters, schools, and public facilities.',
+        ]);
+        \App\Models\Section::factory(1)->type('story-page-three-section')->create([
+            'name'            => 'Vision Statement',
+            'description'     => 'Saudi Gulf Group seeks to provide integrated facility management and maintenance services to our clients and we pledge to establish lasting partnership relations with our clients and gain their confidence through our experience and our exceptional team. We look forward to providing the highest levels of service to our clients in a short time and with exceptional quality.',
+            'sub_description' => 'Our vision is to maintain its growth as one of the leading Saudi groups in the field of integrated general contractings.',
+        ]);
+        \App\Models\Section::factory(1)->type('story-page-four-section')->create([
+            'name'    => 'Values & Principles',
+            'data' => [
+                'Partnership for success: Cooperating with our clients as partners in all project phases with all its details and challenges',
+                'Honesty and Loyalty: Our relationship with our clients is based mainly on loyalty and honesty in order to gain their trust and deal with them more than once.',
+                'Overcoming Challenges: We have a full commitment to finding innovative and new solutions to any time or material challenges facing our customers'
+            ]
+        ]);
     }
 }

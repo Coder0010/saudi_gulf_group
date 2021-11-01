@@ -2,7 +2,9 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-2 col-2">
-                <img src="{{ asset('frontend/images/Logo-white.png') }}">
+                <a href="{{ route('frontend.index') }}">
+                    <img src="{{ asset('frontend/images/Logo-white.png') }}">
+                </a>
             </div>
             <div class="col-lg-6 offset-lg-3 col-7">
                 <div class="social-icons ">

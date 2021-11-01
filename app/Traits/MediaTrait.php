@@ -28,4 +28,30 @@ trait MediaTrait
         }
         return asset('frontend/images/default.png');
     }
+
+    /**
+     * Determine if the entity has image.
+     *
+     * @return bool
+     */
+    public function getVideoAttribute()
+    {
+        if($this->getModelMedia("video")){
+            return $this->getModelMedia("video");
+        }
+        return '';
+    }
+
+    /**
+     * Determine if the entity has image.
+     *
+     * @return bool
+     */
+    public function getPdfAttribute()
+    {
+        if($this->getModelMedia("pdf")){
+            return $this->getModelMedia("pdf");
+        }
+        return '';
+    }
 }

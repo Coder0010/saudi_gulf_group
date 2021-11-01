@@ -2,12 +2,12 @@
     <div class="card-header" id="{{ $contactUsSection->type }}">
         <h2 class="mb-0">
             <button class="collapsed  btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-{{ $contactUsSection->type }}" aria-expanded="true" aria-controls="collapse-{{ $contactUsSection->type }}">
-                {{ $contactUsSection->type }}
+                {{ str_replace('-', ' ', Str::title($contactUsSection->type)) }}
                 <i class="fa float-right" aria-hidden="true"></i>
             </button>
         </h2>
     </div>
-    <div id="collapse-{{ $contactUsSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }}" aria-labelledby="{{ $contactUsSection->type }}" data-parent="#accordionExample">
+    <div id="collapse-{{ $contactUsSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }}" aria-labelledby="{{ $contactUsSection->type }}" data-parent="#homeAccordion">
         <div class="card-body">
             <form method="POST" action="{{ route('backend.sections.update', $contactUsSection->type) }}" class="form-row" enctype='multipart/form-data'>
                 @csrf
@@ -18,7 +18,6 @@
                 </div><!-- name -->
                 <div class="form-group col-md-12 h-100">
                     <label for="description">description</label>
-                    {{-- <div id="contact_us_section_description_editor">{!! $contactUsSection->description !!}</div> --}}
                     <textarea name="description" id="description" class="form-control" rows="5">{{ $contactUsSection->description }}</textarea>
                 </div><!-- description -->
                 <div class="form-group col-md-12">

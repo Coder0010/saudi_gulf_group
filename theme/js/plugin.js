@@ -20,8 +20,7 @@ $('.service-carousel').owlCarousel({
     autoplay: false,
     autoplayTimeout: 4000,
     autoplayHoverPause: true
-})
-
+});
 
 $('.portfolio-carousel').owlCarousel({
     center: true,

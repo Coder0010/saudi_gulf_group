@@ -6,6 +6,7 @@ use App\Models\Item;
 use App\Models\Entity;
 use App\Traits\MediaTrait;
 use Spatie\MediaLibrary\HasMedia;
+use Facades\App\Libraries\MediaLibrary;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -46,6 +47,14 @@ class Section extends Entity implements HasMedia
         parent::boot();
         static::saved(function ($entity) {
             $entity->attachItems('welcome-section', 'services');
+            switch ($entity->type) {
+                case 'story-page-one-section':
+                    MediaLibrary::storeOrUpdate($entity, "video");
+                    break;
+                case 'story-page-four-section':
+                    MediaLibrary::storeOrUpdate($entity, "pdf");
+                break;
+            }
         });
     }
 

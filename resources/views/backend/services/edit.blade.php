@@ -18,3 +18,10 @@
         </div>
     </div>
 @endsection
+
+@section('js')
+    <script>
+        $("#clients").val(@json($entity->clients()->pluck('id'))).trigger('change')
+        $("#portfolios").val(@json($entity->portfolios()->pluck('id'))).trigger('change')
+    </script>
+@endsection

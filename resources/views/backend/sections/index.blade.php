@@ -16,10 +16,10 @@
         <h1> {{ Session::get('type') }} </h1>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link" id="home-page-sections-tab" data-toggle="tab" href="#home-page-sections" role="tab" aria-controls="home-page-sections" aria-selected="true">Home-page-sections</a>
+                <a class="nav-link active" id="home-page-sections-tab" data-toggle="tab" href="#home-page-sections" role="tab" aria-controls="home-page-sections" aria-selected="true">Home-page-sections</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" id="story-page-sections-tab" data-toggle="tab" href="#story-page-sections" role="tab" aria-controls="story-page-sections" aria-selected="false">story-page-sections</a>
+                <a class="nav-link" id="story-page-sections-tab" data-toggle="tab" href="#story-page-sections" role="tab" aria-controls="story-page-sections" aria-selected="false">story-page-sections</a>
             </li>
         </ul>
         <div class="tab-content pt-2" id="myTabContent">

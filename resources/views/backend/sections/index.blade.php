@@ -23,7 +23,7 @@
             </li>
         </ul>
         <div class="tab-content pt-2" id="myTabContent">
-            <div class="tab-pane fade" id="home-page-sections" role="tabpanel" aria-labelledby="home-page-sections-tab">
+            <div class="tab-pane fade show active" id="home-page-sections" role="tabpanel" aria-labelledby="home-page-sections-tab">
                 <div class="card">
                     <div class="card-header bg-info text-white">
                         <h2 class="card-title m-0">
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade show active" id="story-page-sections" role="tabpanel" aria-labelledby="story-page-sections-tab">
+            <div class="tab-pane fade" id="story-page-sections" role="tabpanel" aria-labelledby="story-page-sections-tab">
                 <div class="card">
                     <div class="card-header bg-info text-white">
                         <h2 class="card-title m-0">

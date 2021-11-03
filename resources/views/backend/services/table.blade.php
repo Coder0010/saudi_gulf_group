@@ -5,6 +5,7 @@
                 <th scope="col">id</th>
                 <th>name</th>
                 <th>description</th>
+                <th>sub_description</th>
                 <th>image</th>
                 <th>actions</th>
             </tr>
@@ -15,6 +16,7 @@
                     <th class="align-middle" scope="row">{{ $row->id }}</th>
                     <th class="align-middle">{{ $row->name }}</th>
                     <td class="align-middle">{{ \Str::words(strip_tags($row->description), 20) }}</td>
+                    <td class="align-middle">{{ $row->sub_description ? \Str::words(strip_tags($row->sub_description), 20) : '-'  }}</td>
                     <td class="align-middle">
                         <img src="{{ $row->image }}" width="100" height="100">
                     </td>

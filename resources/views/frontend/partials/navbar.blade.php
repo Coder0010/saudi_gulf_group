@@ -15,6 +15,6 @@
         {{-- <li><a href="{{ route('frontend.portfolios.index') }}">Portfolios</a></li> --}}
         <li><a href="{{ route('frontend.packages.index') }}">Packages</a></li>
         <li><a href="{{ route('frontend.contact-us') }}">Contact us</a></li>
-        <li><a href="#" class="ar">عربي</a></li>
+        {{-- <li><a href="#" class="ar">عربي</a></li> --}}
     </ul>
 </nav>

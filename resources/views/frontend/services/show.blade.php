@@ -56,7 +56,7 @@
                 </div>
             @endif
             @if (count($service->clients))
-                <div class="related-portfolio pt-0">
+                <div class="related-portfolio>
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">

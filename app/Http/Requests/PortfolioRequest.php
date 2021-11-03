@@ -25,7 +25,7 @@ class PortfolioRequest extends FormRequest
     {
         return [
             'name'        => 'required|string',
-            'description' => 'required|not_in:<p><br></p>',
+            'description' => 'sometimes|nullable|not_in:<p><br></p>',
             'image'       => 'required_if:_method,store|file',
         ];
     }

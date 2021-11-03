@@ -12,7 +12,7 @@
                 @csrf
                 @method("patch")
                 <input type="hidden" name="type" value="{{ $storyPageOneSection->type }}">
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-12 d-none">
                     <label for="name">name</label>
                     <input type="name" name="name" name="name" class="form-control" value="{{ $storyPageOneSection->type }}">
                 </div>

@@ -26,7 +26,7 @@ class PackageRequest extends FormRequest
         return [
             'name'            => 'required|string',
             'sub_name'        => 'sometimes|nullable|string',
-            'description'     => 'required|not_in:<p><br></p>',
+            'description'     => 'sometimes|nullable|not_in:<p><br></p>',
             'sub_description' => 'sometimes|nullable|not_in:<p><br></p>',
             'image'           => 'required_if:_method,store|file',
             'data'            => 'sometimes|nullable|array',

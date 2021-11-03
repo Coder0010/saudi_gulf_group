@@ -27,9 +27,7 @@
                             <div class="service-info">
                                 <h3>{{ $service->name }}</h3>
                                 <p> {!! $service->description !!} </p>
-                                @if ($service->sub_description)
-                                    <p> {!! $service->sub_description !!} </p>
-                                @endif
+                                <p> {!! $service->sub_description !!} </p>
                             </div>
                         </div>
                     </div>

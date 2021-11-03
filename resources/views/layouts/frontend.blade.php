@@ -19,6 +19,6 @@
     <body>
         @yield("content")
         <script src="{{ asset('frontend/compiled.js') }}"></script>
-        {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+        @yield('js_scripts')
     </body>
 </html>

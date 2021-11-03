@@ -137,3 +137,7 @@
         @include('frontend.partials.footer')
     </body>
 @endsection
+
+@section('js_scripts')
+    <script src="{{ asset('js/app.js') }}"></script>
+@endsection

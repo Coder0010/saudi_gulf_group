@@ -19,6 +19,7 @@ class CreateServicesTable extends Migration
             $table->string('sub_name')->nullable();
             $table->text('description')->nullable();
             $table->text('sub_description')->nullable();
+            $table->text('data')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

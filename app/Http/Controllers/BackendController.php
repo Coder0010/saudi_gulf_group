@@ -50,7 +50,7 @@ class BackendController extends Controller
             'sub_name'        => 'sometimes|nullable|string',
             'description'     => 'sometimes|nullable|string',
             'sub_description' => 'sometimes|nullable|string',
-            'services'        => 'required_if:type,welcome_section|array',
+            'services'        => 'required_if:type,welcome-section|array',
             'services.*'      => 'required|integer|exists:services,id,deleted_at,NULL',
         ]);
         DB::beginTransaction();

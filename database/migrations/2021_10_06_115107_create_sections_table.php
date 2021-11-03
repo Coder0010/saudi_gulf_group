@@ -15,10 +15,10 @@ class CreateSectionsTable extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->string('name');
+            $table->string('type')->nullable();
+            $table->string('name')->nullable();
             $table->string('sub_name')->nullable();
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->text('sub_description')->nullable();
             $table->text('data')->nullable();
             $table->enum('is_enabled', ['yes', 'no'])->default('yes');

@@ -1,6 +1,7 @@
 <nav id="nav">
     <ul class="main">
         <li><a href="{{ route('frontend.index') }}">Home</a></li>
+        <li><a href="{{ route('frontend.our-story') }}">Our story</a></li>
         @if ($services)
             <li>
                 <a data-toggle="collapse" href="#submenu1" role="button" aria-expanded="false" aria-controls="submenu1">Services</a>
@@ -12,9 +13,8 @@
             </li>
         @endif
         {{-- <li><a href="{{ route('frontend.portfolios.index') }}">Portfolios</a></li> --}}
-        <li><a href="{{ route('frontend.contact-us') }}">Contact us</a></li>
-        <li><a href="{{ route('frontend.our-story') }}">Our story</a></li>
         <li><a href="{{ route('frontend.packages.index') }}">Packages</a></li>
+        <li><a href="{{ route('frontend.contact-us') }}">Contact us</a></li>
         <li><a href="#" class="ar">عربي</a></li>
     </ul>
 </nav>

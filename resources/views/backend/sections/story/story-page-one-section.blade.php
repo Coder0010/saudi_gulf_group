@@ -9,9 +9,10 @@
     </div>
     <div id="collapse-{{ $storyPageOneSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }}" aria-labelledby="{{ $storyPageOneSection->type }}" data-parent="#homeAccordion">
         <div class="card-body">
-            <form method="POST" action="{{ route('backend.sections.update', $storyPageOneSection->type) }}" class="form-row" enctype='multipart/form-data'>
+            <form method="POST" action="{{ route('backend.sections.update') }}" class="form-row" enctype='multipart/form-data'>
                 @csrf
                 @method("patch")
+                <input type="hidden" name="type" value="{{ $storyPageOneSection->type }}">
                 <div class="form-group col-md-12">
                     <label for="name">name</label>
                     <input type="name" name="name" name="name" class="form-control" value="{{ $storyPageOneSection->type }}">

@@ -10,7 +10,7 @@
             <div class="col-lg-8 text-center">
                 <h1>{{ $familySection->name }}</h1>
                 <p>{{ $familySection->description }}</p>
-                <a href="#">Get your qutation</a>
+                <a href="{{ route('frontend.contact-us') }}">Get your qutation</a>
             </div>
         </div>
     </div>

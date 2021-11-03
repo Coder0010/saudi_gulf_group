@@ -4,7 +4,7 @@
             <div class="col-lg-4  d-flex align-content-center flex-wrap">
                 <div class="story-img">
                     <span> {{ $storySection->sub_name }} </span>
-                    <img src="frontend/images/undraw_Working_re_ddwy.svg">
+                    <img src="{{ $storySection->image }}">
                 </div>
             </div>
             <div class="col-lg-6 d-flex align-content-center flex-wrap">

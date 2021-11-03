@@ -22,14 +22,14 @@
                             <div class="info-box">
                                 <i class="fa fa-map"></i>
                                 <strong>Address</strong>
-                                <p> {{ $contactUsSection->data['address'] }} </p>
+                                <p> {{ @$contactUsSection->data['address'] }} </p>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="info-box">
                                 <i class="fa fa-clock-o"></i>
                                 <strong>Work time</strong>
-                                <p> {{ $contactUsSection->data['work_time'] }} </p>
+                                <p> {{ @$contactUsSection->data['work_time'] }} </p>
                             </div>
                         </div>
                         <div class="col-lg-3">

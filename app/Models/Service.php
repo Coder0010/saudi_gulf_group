@@ -28,6 +28,15 @@ class Service extends Entity implements HasMedia
     ];
 
     /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'data' => 'array',
+    ];
+
+    /**
      * The accessors to append to the model's array form.
      *
      * @var array

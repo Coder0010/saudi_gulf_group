@@ -53,7 +53,7 @@ class Section extends Entity implements HasMedia
                     MediaLibrary::storeOrUpdate($entity, "image");
                     break;
                 case 'story-section':
-                    MediaLibrary::storeOrUpdate($entity, "video");
+                    MediaLibrary::storeOrUpdate($entity, "image");
                     break;
                 case 'family-section':
                     MediaLibrary::storeOrUpdate($entity, "video");

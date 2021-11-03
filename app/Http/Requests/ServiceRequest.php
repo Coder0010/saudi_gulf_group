@@ -24,13 +24,14 @@ class ServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'           => 'required|string',
-            'description'    => 'required|not_in:<p><br></p>',
-            'image'          => 'required_if:_method,store|file',
-            'clients'        => 'array',
-            'clients.*'      => 'exists:clients,id',
-            'portfolios'     => 'array',
-            'portfolios.*'   => 'exists:portfolios,id'
+            'name'            => 'required|string',
+            'description'     => 'required|not_in:<p><br></p>',
+            'sub_description' => 'sometimes|nullable|not_in:<p><br></p>',
+            'image'           => 'required_if:_method,store|file',
+            'clients'         => 'array',
+            'clients.*'       => 'exists:clients,id',
+            'portfolios'      => 'array',
+            'portfolios.*'    => 'exists:portfolios,id'
         ];
     }
 

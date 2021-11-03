@@ -11,7 +11,7 @@
                 <div class="story-text">
                     <h5>{{ $storySection->name }}</h5>
                     <p> {!! $storySection->description !!} </p>
-                    <a href="route('frontend.story')"> Discover More <i class="fa long-arrow-alt-right"></i> </a>
+                    <a href="{{ route('frontend.our-story') }}"> Discover More <i class="fa long-arrow-alt-right"></i> </a>
                 </div>
             </div>
         </div>

@@ -29,6 +29,7 @@ class BackendController extends Controller
     public function index()
     {
         return view('backend.sections.index',[
+            'seoSection'            => Section::whereType('seo-section')->first(),
             'aboutUsSection'        => Section::whereType('about-us-section')->first(),
             'contactUsSection'      => Section::whereType('contact-us-section')->first(),
 
@@ -62,6 +63,7 @@ class BackendController extends Controller
             $entity = Section::whereType($request->type)->firstOrFail();
             if ($entity) {
                 $entity->update($request->all());
+                logger($request->all());
                 Session::flash("type", $request->type);
                 Session::flash("success", " [ $request->type ] updated successfully");
             } else {

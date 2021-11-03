@@ -108,6 +108,9 @@ class AppServiceProvider extends ServiceProvider
 
         $this->sharePortfolios(['frontend.sections.portfolios-section', 'frontend.portfolios.index',]);
 
+        view()->composer(['layouts.frontend'], function ($view) {
+            $view->with('seoSection', Section::whereType('seo-section')->first());
+        });
         view()->composer(['frontend.partials.footer', 'frontend.partials.header'], function ($view) {
             $view->with('aboutUsSection', Section::whereType('about-us-section')->first());
         });

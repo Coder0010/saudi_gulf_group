@@ -4,8 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="description" content="{{ @$seoSection->data['description'] }}">
+        <meta name="keywords" content="{{ @$seoSection->data['keywords'] }}">
+        <meta property="og:title" content="{{ $seoSection->name }}" />
+        <meta property="og:description" content="{{ @$seoSection->data['description'] }}" />
+        <meta property="og:keywords" content="{{ @$seoSection->data['keywords'] }}" />
         @if (app()->isProduction())
-            <title>{{ config('app.name') }} | @yield('title')</title>
+            <title>{{ $seoSection->name }} | @yield('title')</title>
             <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css" rel="stylesheet" type="text/css">
             <link href="https://fonts.gstatic.com" rel="preconnect">
             <link href="//fonts.gstatic.com" rel="dns-prefetch">

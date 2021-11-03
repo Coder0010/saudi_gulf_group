@@ -41,7 +41,7 @@
                     </div>
                     <div class="card-body">
                         <div class="accordion" id="generalAccordion">
-                            @foreach (["about-us-section", "contact-us-section"] as $item)
+                            @foreach (["seo-section", "about-us-section", "contact-us-section"] as $item)
                                 @include('backend.sections.general-page.'.$item, ["isShowed" => Session::get("type") == $item ? 'isShowed':''])
                             @endforeach
                         </div>

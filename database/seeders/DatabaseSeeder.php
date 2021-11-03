@@ -13,6 +13,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        \App\Models\Section::factory(1)->type('seo-section')->create([
+            'name'        => 'website name',
+            'data'        => [
+                'description' => 'description of website',
+                'keywords' => 'se, su, ss, as,',
+            ]
+        ]);
+        return;
         $this->call([
             ResetDBSeeder::class,
         ]);

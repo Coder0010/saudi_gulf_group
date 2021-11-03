@@ -6,6 +6,7 @@ use DB;
 use Session;
 use Exception;
 use App\Models\Lead;
+use App\Models\Package;
 use App\Models\Service;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
@@ -65,6 +66,11 @@ class FrontendController extends Controller
         return view('frontend.services.show',[
             'service' => $service
         ]);
+    }
+
+    public function packagesIndex()
+    {
+        return view('frontend.packages.index');
     }
 
     public function contactUs()

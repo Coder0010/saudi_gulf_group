@@ -3,11 +3,10 @@
         <h2 class="mb-0">
             <button class="collapsed  btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-{{ $contactUsSection->type }}" aria-expanded="true" aria-controls="collapse-{{ $contactUsSection->type }}">
                 {{ str_replace('-', ' ', Str::title($contactUsSection->type)) }}
-                <i class="fa float-right" aria-hidden="true"></i>
             </button>
         </h2>
     </div>
-    <div id="collapse-{{ $contactUsSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }}" aria-labelledby="{{ $contactUsSection->type }}" data-parent="#homeAccordion">
+    <div id="collapse-{{ $contactUsSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }} border border-info" aria-labelledby="{{ $contactUsSection->type }}" data-parent="#generalAccordion">
         <div class="card-body">
             <form method="POST" action="{{ route('backend.sections.update') }}" class="form-row" enctype='multipart/form-data'>
                 @csrf
@@ -17,9 +16,9 @@
                     <label for="name">name</label>
                     <input type="text" name="name" id="name" class="form-control" placeholder="name" value="{{ $contactUsSection->name }}">
                 </div><!-- name -->
-                <div class="form-group col-md-12 h-100">
+                <div class="form-group col-md-12">
                     <label for="description">description</label>
-                    <textarea name="description" id="description" class="form-control" rows="5">{{ $contactUsSection->description }}</textarea>
+                    <textarea name="description" id="description" class="form-control" rows="3">{{ $contactUsSection->description }}</textarea>
                 </div><!-- description -->
                 <div class="form-group col-md-12">
                     <label for="address">address</label>

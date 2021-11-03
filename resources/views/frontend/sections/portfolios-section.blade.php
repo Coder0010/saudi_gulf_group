@@ -5,8 +5,7 @@
                 <div class="head-title">
                     <div class="head-title">
                         <span>{{ $portfolioSection->name }}</span>
-                        <br>
-                        <p> {!! $portfolioSection->description !!} </p>
+                        <h3>{{ $portfolioSection->sub_name }}</h3>
                     </div>
                 </div>
             </div>
@@ -29,7 +28,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <a href="route('frontend.portfolios')" class="action">Discover All portfolio</a>
+                <a href="{{ route('frontend.portfolios.index') }}" class="action">Discover All portfolio</a>
             </div>
         </div>
     </div>

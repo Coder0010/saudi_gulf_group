@@ -22,12 +22,13 @@ class DatabaseSeeder extends Seeder
             'email'    => 'admin@sg-egypt.com',
             'password' => \Hash::make('12345678')
         ]);
-        \App\Models\Section::factory(1)->type('general-section')->create([
-            'name'        => 'general-section',
+
+        \App\Models\Section::factory(1)->type('about-us-section')->create([
+            'name'        => 'about-us-section-header',
             'description' => 'Saudi Gulf Group was established 15 years ago in Riyadh – the Kingdom of Saudi Arabia as a company specialized in the field of contracting, restoration, final finishing, and maintenance works',
         ]);
-        \App\Models\Section::factory(1)->type('contactUs-section')->create([
-            'name'        => 'contactUs-section',
+        \App\Models\Section::factory(1)->type('contact-us-section')->create([
+            'name'        => 'contact-us-section-header',
             'description' => 'Saudi Gulf Group was established 15 years ago in Riyadh – the Kingdom of Saudi Arabia as a company specialized in the field of contracting, restoration, final finishing, and maintenance works',
             'data'        => [
                 'address'    => '56 Makram Ebaid St. Nasr City, Banque Misr Building - 10th Floor',
@@ -37,7 +38,8 @@ class DatabaseSeeder extends Seeder
                 'iframe_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.166015921346!2d31.347292884253346!3d30.06077542475458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583f9a722d8d4f%3A0xa9b1a81a4c1b2330!2sSaudi%20Gulf%20Group!5e0!3m2!1sar!2seg!4v1624456587480!5m2!1sar!2seg'
             ]
         ]);
-        \App\Models\Section::factory(1)->type('welcome-section')->create([
+
+        \App\Models\Section::factory(1)->type('slider-section')->create([
             'name'        => 'KEEP CALM AND RELAX',
             'sub_name'    => 'No more searching for companies',
             'description' => 'No more fuss, We provide you all the services your home needs, quality to your liking, at competitive prices'
@@ -55,13 +57,23 @@ class DatabaseSeeder extends Seeder
             'name'     => 'our services',
             'sub_name' => 'TRUST WITH US, WE CA DO THE BEST',
         ]);
-        \App\Models\Section::factory(1)->type('portfolio-section')->create([
-            'name' => 'portfolio-section'
+        \App\Models\Section::factory(1)->type('integrated-section')->create([
+            'name'        => 'Integrated Facility Management And Maintenance Services',
+            'description' => 'We pledge to establish lasting partnership relations with our clients and gain their confidence through our experience and our exceptional team.',
+            'data' => [
+                'Qualified Team of Engineers & Experts',
+                'Solid portfolio across KSA and Egypt',
+                'Innovative Solutions to Time/Budget Challenges'
+            ]
         ]);
-
-        \App\Models\Client::factory(5)->create();
-        \App\Models\Portfolio::factory(5)->create();
-        \App\Models\Service::factory(5)->create();
+        \App\Models\Section::factory(1)->type('portfolio-section')->create([
+            'name'     => 'WE LET THE THE ART TO TALK ABOUT US',
+            'sub_name' => 'Our Portfolio',
+        ]);
+        \App\Models\Section::factory(1)->type('family-section')->create([
+            'name'        => 'We are not a company, We are Family',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        ]);
 
         \App\Models\Section::factory(1)->type('story-page-one-section')->create([
             'name'        => 'Video',
@@ -84,5 +96,10 @@ class DatabaseSeeder extends Seeder
                 'Overcoming Challenges: We have a full commitment to finding innovative and new solutions to any time or material challenges facing our customers'
             ]
         ]);
+
+        \App\Models\Client::factory(1)->create();
+        \App\Models\Portfolio::factory(1)->create();
+        \App\Models\Service::factory(1)->create();
+        \App\Models\Package::factory(1)->create();
     }
 }

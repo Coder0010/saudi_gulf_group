@@ -29,13 +29,14 @@ class BackendController extends Controller
     public function index()
     {
         return view('backend.sections.index',[
-            'generalSection'   => Section::whereType('general-section')->first(),
-            'contactUsSection' => Section::whereType('contactUs-section')->first(),
-            'welcomeSection'   => Section::whereType('welcome-section')->first(),
-            'couponSection'    => Section::whereType('coupon-section')->first(),
-            'storySection'     => Section::whereType('story-section')->first(),
-            'serviceSection'   => Section::whereType('service-section')->first(),
-            'portfolioSection' => Section::whereType('portfolio-section')->first(),
+            'aboutUsSection'        => Section::whereType('about-us-section')->first(),
+            'contactUsSection'      => Section::whereType('contact-us-section')->first(),
+            'sliderSection'        => Section::whereType('slider-section')->first(),
+            'couponSection'         => Section::whereType('coupon-section')->first(),
+            'storySection'          => Section::whereType('story-section')->first(),
+            'serviceSection'        => Section::whereType('service-section')->first(),
+            'integratedSection'     => Section::whereType('integrated-section')->first(),
+            'portfolioSection'      => Section::whereType('portfolio-section')->first(),
             'storyPageOneSection'   => Section::whereType('story-page-one-section')->first(),
             'storyPageTwoSection'   => Section::whereType('story-page-two-section')->first(),
             'storyPageThreeSection' => Section::whereType('story-page-three-section')->first(),
@@ -50,7 +51,7 @@ class BackendController extends Controller
             'sub_name'        => 'sometimes|nullable|string',
             'description'     => 'sometimes|nullable|string',
             'sub_description' => 'sometimes|nullable|string',
-            'services'        => 'required_if:type,welcome-section|array',
+            'services'        => 'required_if:type,slider-section|array',
             'services.*'      => 'required|integer|exists:services,id,deleted_at,NULL',
         ]);
         DB::beginTransaction();

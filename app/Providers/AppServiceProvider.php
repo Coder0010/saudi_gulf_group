@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Client;
+use App\Models\Package;
 use App\Models\Section;
 use App\Models\Service;
 use App\Models\Portfolio;
@@ -53,35 +54,34 @@ class AppServiceProvider extends ServiceProvider
         });
     }
 
+    public function sharePackages($to)
+    {
+        view()->composer($to, function ($view) {
+            $view->with('packages', Package::latest()->get());
+        });
+    }
+
     public function backendComposer()
     {
         $this->shareClients('backend.services.form');
         $this->sharePortfolios('backend.services.form');
 
-        $this->shareServices('backend.sections.welcome-section');
-        view()->composer(['backend.sections.welcome-section'], function ($view) {
-            $view->with('selected_services', Section::whereType('welcome-section')->first()->services()->pluck('itemable_id'));
+        $this->shareServices('backend.sections.home-page.slider-section');
+        view()->composer(['backend.sections.home-page.slider-section'], function ($view) {
+            $view->with('selected_services', Section::whereType('slider-section')->first()->services()->pluck('itemable_id'));
         });
     }
 
     public function frontendComposer()
     {
-        view()->composer(['frontend.partials.footer', 'frontend.partials.header'], function ($view) {
-            $view->with('generalSection', Section::whereType('general-section')->first());
-        });
-
-        view()->composer(['frontend.contact-us'], function ($view) {
-            $view->with('contactUsSection', Section::whereType('contactUs-section')->first());
-        });
-
-        view()->composer(['frontend.sections.welcome-section'], function ($view) {
-            $tempServices = Section::whereType('welcome-section')->first()->services;
+        view()->composer(['frontend.sections.slider-section'], function ($view) {
+            $tempServices = Section::whereType('slider-section')->first()->services;
             $results = [];
             foreach ($tempServices as $service) {
                 $results[] = Service::find($service->itemable_id);
             }
             $view->with('selected_services', $results);
-            $view->with('welcomeSection', Section::whereType('welcome-section')->first());
+            $view->with('sliderSection', Section::whereType('slider-section')->first());
         });
 
         view()->composer(['frontend.sections.coupon-section'], function ($view) {
@@ -92,21 +92,29 @@ class AppServiceProvider extends ServiceProvider
             $view->with('storySection', Section::whereType('story-section')->first());
         });
 
-        $this->shareServices('frontend.sections.services-section');
+        view()->composer(['frontend.sections.integrated-section'], function ($view) {
+            $view->with('integratedSection', Section::whereType('integrated-section')->first());
+        });
+
         view()->composer(['frontend.sections.services-section'], function ($view) {
             $view->with('serviceSection', Section::whereType('service-section')->first());
         });
 
-        $this->sharePortfolios('frontend.sections.portfolios-section');
         view()->composer(['frontend.sections.portfolios-section'], function ($view) {
             $view->with('portfolioSection', Section::whereType('portfolio-section')->first());
         });
 
-        $this->sharePortfolios('frontend.portfolios.index');
+        $this->shareServices(['frontend.sections.services-section', 'frontend.partials.navbar', 'frontend.services.index', 'frontend.contact-us']);
 
-        $this->shareServices('frontend.partials.navbar');
+        $this->sharePortfolios(['frontend.sections.portfolios-section', 'frontend.portfolios.index',]);
 
-        $this->shareServices('frontend.contact-us');
+        view()->composer(['frontend.partials.footer', 'frontend.partials.header'], function ($view) {
+            $view->with('aboutUsSection', Section::whereType('about-us-section')->first());
+        });
+
+        view()->composer(['frontend.contact-us'], function ($view) {
+            $view->with('contactUsSection', Section::whereType('contact-us-section')->first());
+        });
 
         view()->composer(['frontend.our-story'], function ($view) {
             $view->with('storyPageOneSection', Section::whereType('story-page-one-section')->first());
@@ -114,6 +122,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('storyPageThreeSection', Section::whereType('story-page-three-section')->first());
             $view->with('storyPageFourSection', Section::whereType('story-page-four-section')->first());
         });
+        $this->sharePackages(['frontend.packages.index',]);
 
     }
 }

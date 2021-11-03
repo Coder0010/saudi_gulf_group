@@ -23,11 +23,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <th scope="row">type</th>
-                            <td>name</td>
-                            <td>phone</td>
-                            <td>email</td>
-                            <td>description</td>
+                            <td colspan="30" class="text-center"> no data </td>
                         </tr>
                     @endforelse
                 </tbody>

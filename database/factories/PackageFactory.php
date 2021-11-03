@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Section;
-use App\Models\Service;
+use App\Models\Package;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SectionFactory extends Factory
+class PackageFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Section::class;
+    protected $model = Package::class;
 
     /**
      * Define the model's default state.
@@ -25,6 +24,10 @@ class SectionFactory extends Factory
         return [
             'name'        => $this->faker->unique()->name,
             'description' => $this->faker->paragraph,
+            'data'        => [
+                '128 ssd',
+                '16 ram',
+            ]
         ];
     }
 
@@ -39,26 +42,6 @@ class SectionFactory extends Factory
             return [
                 'type' => $type,
             ];
-        });
-    }
-
-    /**
-     * Configure the model factory.
-     *
-     * @return $this
-     */
-    public function configure()
-    {
-        return $this->afterCreating(function ($entity) {
-            switch ($entity->type) {
-                case 'slider-section':
-                    $entity->services()->create([
-                        'section_id'    => $entity->id,
-                        'itemable_type' => 'App\Models\Service',
-                        'itemable_id'   => Service::factory()->create()->id
-                    ]);
-                    break;
-            }
         });
     }
 

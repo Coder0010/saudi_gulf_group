@@ -25,7 +25,8 @@ class Section extends Entity implements HasMedia
         'sub_name',
         'description',
         'sub_description',
-        'data'
+        'is_enabled',
+        'data',
     ];
 
     /**
@@ -46,13 +47,21 @@ class Section extends Entity implements HasMedia
     {
         parent::boot();
         static::saved(function ($entity) {
-            $entity->attachItems('welcome-section', 'services');
             switch ($entity->type) {
+                case 'slider-section':
+                    $entity->attachItems('slider-section', 'services');
+                    MediaLibrary::storeOrUpdate($entity, "image");
+                    break;
                 case 'story-page-one-section':
                     MediaLibrary::storeOrUpdate($entity, "video");
                     break;
                 case 'story-page-four-section':
                     MediaLibrary::storeOrUpdate($entity, "pdf");
+                break;
+                case 'integrated-section':
+                    for ($i=0; $i <= 2; $i++) {
+                        MediaLibrary::storeOrUpdate($entity, "integrated_card_image_{$i}");
+                    }
                 break;
             }
         });
@@ -74,7 +83,7 @@ class Section extends Entity implements HasMedia
      */
     public function attachItems($sectionType, $itemType)
     {
-        if($sectionType === 'welcome-section')
+        if($sectionType === 'slider-section')
         $entity = $this;
         switch ($itemType) {
             case 'services':

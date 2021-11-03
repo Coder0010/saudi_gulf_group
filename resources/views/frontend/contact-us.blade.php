@@ -12,16 +12,7 @@
 
         <div class="overlay"></div>
 
-        <section class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <a href="{{ route('frontend.index') }}">Home </a>
-                        <p>contact us</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        @include('frontend.partials.breadcrumb', ['title' => 'contact us'])
 
         <section class="inner-page">
             <div class="contact-page">
@@ -54,7 +45,7 @@
                                 </div>
                                 <div class="social">
                                     @foreach (['facebook', 'instagram'] as $item)
-                                        <a href="{{ @$generalSection->data[$item] }}" target="_blank"><i class="fa fa-{{ $item }}"></i></a>
+                                        <a href="{{ @$aboutUsSection->data[$item] }}" target="_blank"><i class="fa fa-{{ $item }}"></i></a>
                                     @endforeach
                                 </div>
                             </div>

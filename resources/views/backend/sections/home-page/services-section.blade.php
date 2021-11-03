@@ -3,11 +3,10 @@
         <h2 class="mb-0">
             <button class="collapsed btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-{{ $serviceSection->type }}" aria-expanded="false" aria-controls="collapse-{{ $serviceSection->type }}">
                 {{ str_replace('-', ' ', Str::title($serviceSection->type)) }}
-                <i class="fa float-right" aria-hidden="true"></i>
             </button>
         </h2>
     </div>
-    <div id="collapse-{{ $serviceSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }}" aria-labelledby="{{ $serviceSection->type }}" data-parent="#homeAccordion">
+    <div id="collapse-{{ $serviceSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }} border border-info" aria-labelledby="{{ $serviceSection->type }}" data-parent="#homeAccordion">
         <div class="card-body">
             <form method="POST" action="{{ route('backend.sections.update') }}" class="form-row" enctype='multipart/form-data'>
                 @csrf

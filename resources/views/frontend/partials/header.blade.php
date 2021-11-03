@@ -9,7 +9,7 @@
             <div class="col-lg-6 offset-lg-3 col-7">
                 <div class="social-icons ">
                     @foreach (['facebook', 'instagram'] as $item)
-                        <a href="{{ @$generalSection->data[$item] }}" target="_blank"><i class="fa fa-{{ $item }}"></i></a>
+                        <a href="{{ @$aboutUsSection->data[$item] }}" target="_blank"><i class="fa fa-{{ $item }}"></i></a>
                     @endforeach
                 </div>
             </div>

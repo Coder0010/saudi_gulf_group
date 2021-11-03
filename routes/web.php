@@ -13,9 +13,11 @@ Route::group(['as' => 'frontend.'], function () {
     Route::get('portfolios/show/{portfolio}', 'FrontendController@portfoliosShow')->name('portfolios.show');
     Route::get('services', 'FrontendController@servicesIndex')->name('services.index');
     Route::get('services/show/{service}', 'FrontendController@servicesShow')->name('services.show');
+    Route::get('packages', 'FrontendController@packagesIndex')->name('packages.index');
     Route::get('contact-us', 'FrontendController@contactUs')->name('contact-us');
     Route::post('contact-us/request', 'FrontendController@contactUsRequest')->name('contact-us.request');
     Route::get('our-story', 'FrontendController@ourStory')->name('our-story');
+
 });
 
 Route::group(['as' => 'backend.', 'prefix' => 'backend'], function () {
@@ -26,8 +28,9 @@ Route::group(['as' => 'backend.', 'prefix' => 'backend'], function () {
     ]);
     Route::get('home', 'BackendController@index')->name('index');
     Route::patch('sections/update', 'BackendController@updateSection')->name('sections.update');
-    Route::resource('services', 'ServiceController');
-    Route::resource('clients', 'ClientController');
-    Route::resource('portfolios', 'PortfolioController');
+    Route::resource('services', 'ServiceController')->except('show');
+    Route::resource('clients', 'ClientController')->except('show');
+    Route::resource('portfolios', 'PortfolioController')->except('show');
+    Route::resource('packages', 'PackageController')->except('show');
     Route::get('leads', 'BackendController@leadsIndex')->name('leads.index');
 });

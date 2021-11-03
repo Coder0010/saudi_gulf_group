@@ -12,17 +12,8 @@
 
         <div class="overlay"></div>
 
-        <section class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <a href="{{ route('frontend.index') }}">Home</a>
-                        <a href="{{ route('frontend.services.index') }}">services</a>
-                        <p>{{ $service->name }}</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        @include('frontend.partials.breadcrumb', ['title' => $service->name])
+
         <section class="inner-page">
             <div class="service-page">
                 <div class="container">

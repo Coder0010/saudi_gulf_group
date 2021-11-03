@@ -9,7 +9,7 @@
                                 <img src="{{ asset('frontend/images/Logo-white.png') }}">
                             </div>
                             <div class="col-lg-9">
-                                {!! $generalSection->description !!}
+                                {!! $aboutUsSection->description !!}
                             </div>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                     <a href="{{ route('frontend.contact-us') }}">Contact us</a>
                     <div class="social-icons">
                         @foreach (['facebook', 'instagram'] as $item)
-                            <a href="{{ @$generalSection->data[$item] }}" target="_blank"><i class="fa fa-{{ $item }}"></i></a>
+                            <a href="{{ @$aboutUsSection->data[$item] }}" target="_blank"><i class="fa fa-{{ $item }}"></i></a>
                         @endforeach
                     </div>
                 </div>

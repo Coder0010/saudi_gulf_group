@@ -12,16 +12,7 @@
 
         <div class="overlay"></div>
 
-        <section class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <a href="{{ route('frontend.index') }}">Home </a>
-                        <p>Portfolio</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        @include('frontend.partials.breadcrumb', ['title' => 'Portfolios'])
 
         <section class="inner-page">
             <div class="portfolio-page">
@@ -30,18 +21,20 @@
                         <div class="col-lg-9">
                             <div class="container">
                                 <div class="row">
-                                    @foreach ($portfolios as $portfolio)
+                                    @forelse ($portfolios as $item)
                                         <div class="col-lg-4">
-                                            <a href="{{ route('frontend.portfolios.show', $portfolio) }}" class="prtfolio-item">
-                                                <img src="{{ $portfolio->image }}" class="img-fluid">
-                                                <span>{{ $portfolio->category }}</span>
+                                            <a href="{{ route('frontend.portfolios.show', $item) }}" class="prtfolio-item">
+                                                <img src="{{ $item->image }}" class="img-fluid">
+                                                <span>{{ $item->category }}</span>
                                                 <div class="item-info">
-                                                    <h3>{{ $portfolio->name }}</h3>
-                                                    <p>{{ $portfolio->location }}</p>
+                                                    <h3>{{ $item->name }}</h3>
+                                                    <p>{{ $item->location }}</p>
                                                 </div>
                                             </a>
                                         </div>
-                                    @endforeach
+                                    @empty
+                                        <div class="col">there is no data</div>
+                                    @endforelse
                                 </div>
                             </div>
                         </div>

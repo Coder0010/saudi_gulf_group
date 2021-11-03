@@ -3,11 +3,10 @@
         <h2 class="mb-0">
             <button class="collapsed btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-{{ $storyPageThreeSection->type }}" aria-expanded="false" aria-controls="collapse-{{ $storyPageThreeSection->type }}">
                 {{ str_replace('-', ' ', Str::title($storyPageThreeSection->type)) }}
-                <i class="fa float-right" aria-hidden="true"></i>
             </button>
         </h2>
     </div>
-    <div id="collapse-{{ $storyPageThreeSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }}" aria-labelledby="{{ $storyPageThreeSection->type }}" data-parent="#homeAccordion">
+    <div id="collapse-{{ $storyPageThreeSection->type }}" class="collapse {{ @$isShowed ? 'show' : '' }} border border-info" aria-labelledby="{{ $storyPageThreeSection->type }}" data-parent="#storyAccordion">
         <div class="card-body">
             <form method="POST" action="{{ route('backend.sections.update') }}" class="form-row" enctype='multipart/form-data'>
                 @csrf
@@ -19,11 +18,11 @@
                 </div><!-- name -->
                 <div class="form-group col-md-12">
                     <label for="description">description</label>
-                    <textarea name="description" id="description" class="form-control" rows="5">{{ $storyPageThreeSection->description }}</textarea>
+                    <textarea name="description" id="description" class="form-control" rows="3">{{ $storyPageThreeSection->description }}</textarea>
                 </div><!-- description -->
                 <div class="form-group col-md-12">
                     <label for="sub_description">sub description</label>
-                    <textarea name="sub_description" id="sub_description" class="form-control" rows="5">{{ $storyPageThreeSection->sub_description }}</textarea>
+                    <textarea name="sub_description" id="sub_description" class="form-control" rows="3">{{ $storyPageThreeSection->sub_description }}</textarea>
                 </div><!-- sub_description -->
                 <button class="btn btn-success btn-block" type="submit">Submit</button>
             </form>

@@ -45,6 +45,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('backend.leads.index') }}">leads</a>
                             </li><!-- leads -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('backend.packages.index') }}">packages</a>
+                            </li><!-- packages -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('frontend.index') }}">visit website</a>
+                            </li><!-- visit website -->
                         @endauth
                     </ul>
 

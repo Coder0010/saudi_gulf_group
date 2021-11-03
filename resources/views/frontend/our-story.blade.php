@@ -12,31 +12,22 @@
 
         <div class="overlay"></div>
 
-        <section class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <a href="{{ route('frontend.index') }}">Home </a>
-                        <p>our story</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        @include('frontend.partials.breadcrumb', ['title' => 'our story'])
 
         <section class="inner-page">
             <div class="story-page">
                 <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="story-video">
-                                @if ($storyPageOneSection->video)
+                    @if ($storyPageOneSection->video)
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="story-video">
                                     <video autoplay controls loop>
                                         <source src="{{ $storyPageOneSection->video }}" type="video/mp4">
                                     </video>
-                                @endif
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                     <div class="row justify-content-center">
                         <div class="col-lg-10">
                             <h3>{{ $storyPageTwoSection->name }}</h3>

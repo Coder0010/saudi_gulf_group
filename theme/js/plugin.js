@@ -15,7 +15,7 @@ $('.service-carousel').owlCarousel({
     loop: true,
     margin: 0,
     nav: true,
-    navText: ["<i class='fas fa-arrow-left'></i>", "<i class='fas fa-arrow-right'></i>"],
+    navText: ["<i class='fa fa-arrow-left'></i>", "<i class='fa fa-arrow-right'></i>"],
     items: 1,
     autoplay: false,
     autoplayTimeout: 4000,

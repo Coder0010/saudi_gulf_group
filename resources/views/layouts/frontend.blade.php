@@ -18,9 +18,9 @@
     </head>
     <body>
         @yield("content")
-        <div id="qrcode"></div>
         <script src="{{ asset('frontend/compiled.js') }}"></script>
         {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+        {{-- <div id="qrcode"></div>
         <script type="text/javascript">
             const qrcode = new QRCode(document.getElementById('qrcode'), {
                 text: 'https://sg-egypt.com/',
@@ -30,6 +30,6 @@
                 colorLight : '#fff',
                 correctLevel : QRCode.CorrectLevel.H
             });
-        </script>
+        </script> --}}
     </body>
 </html>

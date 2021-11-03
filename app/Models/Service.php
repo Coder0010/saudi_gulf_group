@@ -41,7 +41,7 @@ class Service extends Entity implements HasMedia
      *
      * @var array
      */
-    protected $appends = ['image'];
+    protected $appends = ['image', 'pdf'];
 
     /**
      * clients relation.

@@ -30,6 +30,9 @@
                                 @if ($service->sub_description)
                                     <p> {!! $service->sub_description !!} </p>
                                 @endif
+                                @if($service->pdf)
+                                    <a class="btn action" href="{{ $service->pdf }}" target="_blank"> <i class="fa fa-file-download"></i> Download brochure</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -59,26 +62,24 @@
                 </div>
             @endif
             @if (count($service->clients))
-                <div class="related-portfolio">
+                <div class="clients">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h3>Related clients</h3>
+                                <h3>Our work Related Clients</h3>
                             </div>
                         </div>
-                        <div class="owl-carousel portfolio-carousel">
+                        <div class="owl-carousel clients-carousel">
                             @foreach ($service->clients as $item)
-                                <a href="{{ $item->image }}" data-toggle="lightbox" class="prtfolio-item" data-gallery="{{ $item->name }}" class="prtfolio-item">
-                                    <img src="{{ $item->image }}" class="img-fluid">
-                                    <div class="item-info">
-                                        <h3>{{ $item->name }}</h3>
-                                    </div>
-                                </a>
+                                <div class="item">
+                                    <img src="{{ $item->image }}">
+                                </div>
                             @endforeach
                         </div>
                     </div>
                 </div>
             @endif
+            @include('frontend.partials.intersed')
         </section>
 
         @include('frontend.partials.footer')

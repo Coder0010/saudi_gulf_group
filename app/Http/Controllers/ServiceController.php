@@ -58,6 +58,7 @@ class ServiceController extends Controller
             $entity = Service::create($request->validated());
             if ($entity) {
                 MediaLibrary::storeOrUpdate($entity, "image");
+                MediaLibrary::storeOrUpdate($entity, "pdf");
                 $entity->clients()->sync($request->clients);
                 $entity->portfolios()->sync($request->portfolios);
                 Session::flash("success", " [ $entity->name ] created successfully" );
@@ -97,9 +98,10 @@ class ServiceController extends Controller
         DB::beginTransaction();
         try {
             $entity = $service->update($request->validated());
+            MediaLibrary::storeOrUpdate($service, "pdf");
+            MediaLibrary::storeOrUpdate($service, "image");
             $service->clients()->sync($request->clients);
             $service->portfolios()->sync($request->portfolios);
-            MediaLibrary::storeOrUpdate($service, "image");
             if ($entity) {
                 Session::flash("success", " [ $service->name ] updated successfully" );
             } else {

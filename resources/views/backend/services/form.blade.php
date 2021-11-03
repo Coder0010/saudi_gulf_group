@@ -14,10 +14,19 @@
         <textarea name="sub_description" id="sub_description" class="form-control" rows="3">{{ $entity ? $entity['sub_description'] : '' }}</textarea>
     </div><!-- sub_description -->
     <div class="form-group col-md-12">
+        <label for="pdf">pdf</label>
+        <input type="file" name="pdf" id="pdf" class="form-control" accept="application/pdf">
+    </div><!-- pdf -->
+    @if ($entity && !empty($entity['pdf']))
+        <div class="form-group col-md-12 d-flex justify-content-center">
+            <a href="{{ $entity['pdf'] }}" target="_blank">download</a>
+        </div>
+    @endif
+    <div class="form-group col-md-12">
         <label for="image">image</label>
         <input type="file" name="image" id="image" class="form-control">
     </div><!-- image -->
-    @if ($entity && isset($entity['image']))
+    @if ($entity && !empty($entity['image']))
         <div class="form-group col-md-12">
             <img src="{{ $entity['image'] }}" width="100%" height="250px"/>
         </div>

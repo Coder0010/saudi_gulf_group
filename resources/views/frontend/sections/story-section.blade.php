@@ -10,7 +10,6 @@
             <div class="col-lg-6 d-flex align-content-center flex-wrap">
                 <div class="story-text">
                     <h5>{{ $storySection->name }}</h5>
-                    <br>
                     <p> {!! $storySection->description !!} </p>
                     <a href="route('frontend.story')"> Discover More <i class="fa long-arrow-alt-right"></i> </a>
                 </div>

@@ -27,6 +27,9 @@ class PortfolioRequest extends FormRequest
             'name'        => 'required|string',
             'description' => 'sometimes|nullable|not_in:<p><br></p>',
             'image'       => 'required_if:_method,store|file',
+            'sub_name'    => 'sometimes|nullable',
+            'category'    => 'sometimes|nullable',
+            'location'    => 'sometimes|nullable',
         ];
     }
 

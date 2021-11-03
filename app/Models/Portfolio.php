@@ -20,6 +20,10 @@ class Portfolio extends Entity implements HasMedia
     protected $fillable = [
         'name',
         'description',
+        'sub_name',
+        'sub_description',
+        'category',
+        'location',
     ];
 
     /**

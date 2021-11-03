@@ -26,7 +26,10 @@
                         <div class="col-lg-7">
                             <div class="service-info">
                                 <h3>{{ $service->name }}</h3>
-                                {!! $service->description !!}
+                                <p> {!! $service->description !!} </p>
+                                @if ($service->sub_description)
+                                    <p> {!! $service->sub_description !!} </p>
+                                @endif
                             </div>
                         </div>
                     </div>

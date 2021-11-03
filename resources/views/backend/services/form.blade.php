@@ -10,6 +10,10 @@
         <textarea name="description" id="description" class="form-control" rows="3">{{ $entity ? $entity['description'] : '' }}</textarea>
     </div><!-- description -->
     <div class="form-group col-md-12">
+        <label for="sub_description">sub_description</label>
+        <textarea name="sub_description" id="sub_description" class="form-control" rows="3">{{ $entity ? $entity['sub_description'] : '' }}</textarea>
+    </div><!-- sub_description -->
+    <div class="form-group col-md-12">
         <label for="image">image</label>
         <input type="file" name="image" id="image" class="form-control">
     </div><!-- image -->

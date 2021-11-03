@@ -57,7 +57,7 @@
                     </div>
                     <div class="card-body">
                         <div class="accordion" id="homeAccordion">
-                            @foreach (["slider-section", "coupon-section", "story-section", "services-section", "integrated-section", "portfolios-section",] as $item)
+                            @foreach (["slider-section", "coupon-section", "story-section", "services-section", "integrated-section", "family-section", "portfolios-section",] as $item)
                                 @include('backend.sections.home-page.'.$item, ["isShowed" => Session::get("type") == $item ? 'isShowed':''])
                             @endforeach
                         </div>

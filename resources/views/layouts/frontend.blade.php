@@ -20,16 +20,5 @@
         @yield("content")
         <script src="{{ asset('frontend/compiled.js') }}"></script>
         {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
-        {{-- <div id="qrcode"></div>
-        <script type="text/javascript">
-            const qrcode = new QRCode(document.getElementById('qrcode'), {
-                text: 'https://sg-egypt.com/',
-                width: 1028,
-                height: 1028,
-                colorDark : '#000',
-                colorLight : '#fff',
-                correctLevel : QRCode.CorrectLevel.H
-            });
-        </script> --}}
     </body>
 </html>

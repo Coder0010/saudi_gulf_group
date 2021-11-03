@@ -40,7 +40,9 @@
                     </div>
                 </div>
             </div>
+            @include('frontend.partials.intersed')
         </section>
+
         @include('frontend.partials.footer')
     </body>
 @endsection

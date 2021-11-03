@@ -1,7 +1,7 @@
 
 @extends("layouts.frontend")
 
-@section("title", "services")
+@section("title", "our story")
 
 @section("content")
     <body class="main">

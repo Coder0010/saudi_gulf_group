@@ -52,6 +52,9 @@ class Section extends Entity implements HasMedia
                     $entity->attachItems('slider-section', 'services');
                     MediaLibrary::storeOrUpdate($entity, "image");
                     break;
+                case 'family-section':
+                    MediaLibrary::storeOrUpdate($entity, "video");
+                    break;
                 case 'story-page-one-section':
                     MediaLibrary::storeOrUpdate($entity, "video");
                     break;

@@ -18,7 +18,7 @@
                 </div>
                 <div class="form-group col-md-12">
                     <label for="video">video</label>
-                    <input type="file" name="video" id="video" class="form-control" accept="video">
+                    <input type="file" name="video" id="video" class="form-control" accept="video/*">
                 </div><!-- video -->
                 @if ($storyPageOneSection->video)
                     <div class="form-group col-md-12 d-flex justify-content-center">

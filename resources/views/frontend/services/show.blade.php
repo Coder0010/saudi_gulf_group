@@ -41,13 +41,13 @@
                             </div>
                         </div>
                         <div class="owl-carousel portfolio-carousel">
-                            @foreach ($service->portfolios as $portfolio)
-                                <a href="{{ route('frontend.portfolios.show', $portfolio) }}" class="prtfolio-item">
-                                    <img src="{{ $portfolio->image }}" class="img-fluid">
-                                    <span>{{ $portfolio->category }}</span>
+                            @foreach ($service->portfolios as $item)
+                                <a href="{{ route('frontend.portfolios.show', $item) }}" class="prtfolio-item">
+                                    <img src="{{ $item->image }}" class="img-fluid">
+                                    <span>{{ $item->category }}</span>
                                     <div class="item-info">
-                                        <h3>{{ $portfolio->name }}</h3>
-                                        <p>{{ $portfolio->location }}</p>
+                                        <h3>{{ $item->name }}</h3>
+                                        <p>{{ $item->location }}</p>
                                     </div>
                                 </a>
                             @endforeach
@@ -63,14 +63,14 @@
                                 <h3>Related clients</h3>
                             </div>
                         </div>
-                        <div class="owl-carousel clients-carousel">
-                            @foreach ($service->clients as $client)
-                                <div class="card">
-                                    <img src="{{ $client->image }}" class="card-img-top">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">{{ $client->name }}</h5>
+                        <div class="owl-carousel portfolio-carousel">
+                            @foreach ($service->clients as $item)
+                                <a href="{{ $item->image }}" data-toggle="lightbox" class="prtfolio-item" data-gallery="{{ $item->name }}" class="prtfolio-item">
+                                    <img src="{{ $item->image }}" class="img-fluid">
+                                    <div class="item-info">
+                                        <h3>{{ $item->name }}</h3>
                                     </div>
-                                </div>
+                                </a>
                             @endforeach
                         </div>
                     </div>

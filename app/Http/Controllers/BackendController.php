@@ -31,12 +31,15 @@ class BackendController extends Controller
         return view('backend.sections.index',[
             'aboutUsSection'        => Section::whereType('about-us-section')->first(),
             'contactUsSection'      => Section::whereType('contact-us-section')->first(),
-            'sliderSection'        => Section::whereType('slider-section')->first(),
+
+            'sliderSection'         => Section::whereType('slider-section')->first(),
             'couponSection'         => Section::whereType('coupon-section')->first(),
             'storySection'          => Section::whereType('story-section')->first(),
             'serviceSection'        => Section::whereType('service-section')->first(),
             'integratedSection'     => Section::whereType('integrated-section')->first(),
+            'familySection'         => Section::whereType('family-section')->first(),
             'portfolioSection'      => Section::whereType('portfolio-section')->first(),
+
             'storyPageOneSection'   => Section::whereType('story-page-one-section')->first(),
             'storyPageTwoSection'   => Section::whereType('story-page-two-section')->first(),
             'storyPageThreeSection' => Section::whereType('story-page-three-section')->first(),

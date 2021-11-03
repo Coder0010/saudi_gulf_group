@@ -124,5 +124,8 @@ class AppServiceProvider extends ServiceProvider
         });
         $this->sharePackages(['frontend.packages.index',]);
 
+        view()->composer(['frontend.sections.family-section'], function ($view) {
+            $view->with('familySection', Section::whereType('family-section')->first());
+        });
     }
 }

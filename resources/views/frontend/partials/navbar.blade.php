@@ -11,7 +11,7 @@
                 </ul>
             </li>
         @endif
-        <li><a href="{{ route('frontend.portfolios.index') }}">Portfolios</a></li>
+        {{-- <li><a href="{{ route('frontend.portfolios.index') }}">Portfolios</a></li> --}}
         <li><a href="{{ route('frontend.contact-us') }}">Contact us</a></li>
         <li><a href="{{ route('frontend.our-story') }}">Our story</a></li>
         <li><a href="{{ route('frontend.packages.index') }}">Packages</a></li>

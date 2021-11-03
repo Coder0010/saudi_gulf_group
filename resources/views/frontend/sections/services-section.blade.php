@@ -20,7 +20,7 @@
                             </div>
                             <div class="col-lg-6 d-flex align-content-center flex-wrap">
                                 <div class="item-info">
-                                    <h3><a href="route('frontend.services.show', $service)">{{ $service->name }}</a></h3>
+                                    <h3><a href="{{ route('frontend.services.show', $service) }}">{{ $service->name }}</a></h3>
                                     {!! $service->description !!}
                                 </div>
                             </div>

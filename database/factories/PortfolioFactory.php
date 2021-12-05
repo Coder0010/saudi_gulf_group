@@ -22,8 +22,14 @@ class PortfolioFactory extends Factory
     public function definition()
     {
         return [
-            'name'        => $this->faker->unique()->name,
-            'description' => $this->faker->paragraph,
+            'name'        => [
+                'en' => $this->faker->unique()->name,
+                'ar' => $this->faker->unique()->name,
+            ],
+            'description' => [
+                'en' => $this->faker->paragraph,
+                'ar' => $this->faker->paragraph,
+            ],
             'category'    => $this->faker->name,
             'location'    => $this->faker->secondaryAddress(),
         ];

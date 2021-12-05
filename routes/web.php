@@ -7,6 +7,11 @@
 // });
 
 Route::group(['as' => 'frontend.'], function () {
+    Route::get('language/{locale}', function ($locale) {
+        app()->setLocale($locale);
+        session()->put('locale', $locale);
+        return redirect()->back();
+    })->name('language');
     Route::get('/', 'FrontendController@index')->name('index');
     Route::post('coupons/request', 'FrontendController@couponRequest')->name('coupons.request');
     Route::get('portfolios', 'FrontendController@portfoliosIndex')->name('portfolios.index');

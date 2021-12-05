@@ -13,14 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Section::factory(1)->type('seo-section')->create([
-            'name'        => 'website name',
-            'data'        => [
-                'description' => 'description of website',
-                'keywords' => 'se, su, ss, as,',
-            ]
-        ]);
-        return;
         $this->call([
             ResetDBSeeder::class,
         ]);
@@ -29,6 +21,14 @@ class DatabaseSeeder extends Seeder
             'name'     => 'admin',
             'email'    => 'admin@sg-egypt.com',
             'password' => \Hash::make('12345678')
+        ]);
+
+        \App\Models\Section::factory(1)->type('seo-section')->create([
+            'name'        => 'website name',
+            'data'        => [
+                'description' => 'description of website',
+                'keywords' => 'se, su, ss, as,',
+            ]
         ]);
 
         \App\Models\Section::factory(1)->type('about-us-section')->create([

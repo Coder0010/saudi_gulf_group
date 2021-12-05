@@ -4,7 +4,6 @@
 
 @section("content")
     <body class="main">
-
         @include('frontend.partials.header')
 
         @include('frontend.partials.navbar')
@@ -28,6 +27,5 @@
         @include('frontend.sections.family-section')
 
         @include('frontend.partials.footer')
-
     </body>
 @endsection

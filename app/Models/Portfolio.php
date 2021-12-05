@@ -7,10 +7,10 @@ use App\Traits\MediaTrait;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Spatie\Translatable\HasTranslations;
 class Portfolio extends Entity implements HasMedia
 {
-    use MediaTrait, InteractsWithMedia, HasFactory;
+    use MediaTrait, InteractsWithMedia, HasFactory, HasTranslations;
 
     /**
      * The attributes that are mass assignable.
@@ -25,6 +25,8 @@ class Portfolio extends Entity implements HasMedia
         'category',
         'location',
     ];
+
+    public $translatable = ['name', 'description'];
 
     /**
      * The accessors to append to the model's array form.

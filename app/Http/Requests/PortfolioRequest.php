@@ -24,8 +24,10 @@ class PortfolioRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'        => 'required|string',
-            'description' => 'sometimes|nullable|not_in:<p><br></p>',
+            'name.en'     => 'required|string',
+            'name.ar'     => 'required|string',
+            'description.en' => 'sometimes|nullable|not_in:<p><br></p>',
+            'description.ar' => 'sometimes|nullable|not_in:<p><br></p>',
             'image'       => 'required_if:_method,store|file',
             'sub_name'    => 'sometimes|nullable',
             'category'    => 'sometimes|nullable',

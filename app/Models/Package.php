@@ -5,11 +5,14 @@ namespace App\Models;
 use App\Models\Entity;
 use App\Traits\MediaTrait;
 use Spatie\MediaLibrary\HasMedia;
+use Spatie\Translatable\HasTranslations;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Package extends Entity implements HasMedia
 {
-    use MediaTrait, InteractsWithMedia;
+    use MediaTrait, InteractsWithMedia
+    // , HasTranslations
+    ;
 
     /**
      * The attributes that are mass assignable.
@@ -34,5 +37,7 @@ class Package extends Entity implements HasMedia
     protected $casts = [
         'data' => 'array',
     ];
+
+    // public $translatable = ['name', 'description', 'sub_description'];
 
 }

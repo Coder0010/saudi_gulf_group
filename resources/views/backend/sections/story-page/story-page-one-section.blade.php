@@ -12,10 +12,12 @@
                 @csrf
                 @method("patch")
                 <input type="hidden" name="type" value="{{ $storyPageOneSection->type }}">
-                <div class="form-group col-md-12 d-none">
-                    <label for="name">name</label>
-                    <input type="name" name="name" name="name" class="form-control" value="{{ $storyPageOneSection->type }}">
-                </div>
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="name_{{$lang}}">name_{{$lang}}</label>
+                        <input type="text" name="name[{{$lang}}]" id="name_{{ $lang }}" class="form-control" placeholder="name_{{$lang}}" value="{{ $storyPageOneSection->getTranslation('name', $lang) }}">
+                    </div><!-- name -->
+                @endforeach
                 <div class="form-group col-md-12">
                     <label for="video">video</label>
                     <input type="file" name="video" id="video" class="form-control" accept="video/*">

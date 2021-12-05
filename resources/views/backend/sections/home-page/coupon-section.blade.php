@@ -19,14 +19,18 @@
                         <option value="no"  {{ $couponSection->is_enabled == 'no' ? 'selected' : '' }}> no </option>
                     </select>
                 </div><!-- is_enabled -->
-                <div class="form-group col-md-12">
-                    <label for="name">name</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="name" value="{{ $couponSection->name }}">
-                </div><!-- name -->
-                <div class="form-group col-md-12">
-                    <label for="sub_name">sub name</label>
-                    <input type="text" name="sub_name" id="sub_name" class="form-control" placeholder="sub name" value="{{ $couponSection->sub_name }}">
-                </div><!-- sub_name -->
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="name_{{$lang}}">name_{{$lang}}</label>
+                        <input type="text" name="name[{{$lang}}]" id="name_{{ $lang }}" class="form-control" placeholder="name_{{$lang}}" value="{{ $couponSection->getTranslation('name', $lang) }}">
+                    </div><!-- name -->
+                @endforeach
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="sub_name_{{$lang}}">sub_name_{{$lang}}</label>
+                        <input type="text" name="sub_name[{{$lang}}]" id="sub_name{{ $lang }}" class="form-control" placeholder="sub_name_{{$lang}}" value="{{ $couponSection->getTranslation('sub_name', $lang) }}">
+                    </div><!-- sub_name -->
+                @endforeach
                 <button class="btn btn-success btn-block" type="submit">Submit</button>
             </form>
         </div>

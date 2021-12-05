@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="description" content="{{ @$seoSection->data['description'] }}">
-        <meta name="keywords" content="{{ @$seoSection->data['keywords'] }}">
+        <meta name="description" content="{{ @$seoSection->data['description'][app()->getLocale()] }}">
+        <meta name="keywords" content="{{ @$seoSection->data['keywords'][app()->getLocale()] }}">
         <meta property="og:title" content="{{ $seoSection->name }}" />
-        <meta property="og:description" content="{{ @$seoSection->data['description'] }}" />
-        <meta property="og:keywords" content="{{ @$seoSection->data['keywords'] }}" />
+        <meta property="og:description" content="{{ @$seoSection->data['description'][app()->getLocale()] }}" />
+        <meta property="og:keywords" content="{{ @$seoSection->data['keywords'][app()->getLocale()] }}" />
         @if (app()->isProduction())
             <title>{{ $seoSection->name }} | @yield('title')</title>
             <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css" rel="stylesheet" type="text/css">

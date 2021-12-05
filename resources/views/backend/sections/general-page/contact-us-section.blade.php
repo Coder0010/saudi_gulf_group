@@ -12,18 +12,24 @@
                 @csrf
                 @method("patch")
                 <input type="hidden" name="type" value="{{ $contactUsSection->type }}">
-                <div class="form-group col-md-12">
-                    <label for="name">name</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="name" value="{{ $contactUsSection->name }}">
-                </div><!-- name -->
-                <div class="form-group col-md-12">
-                    <label for="description">description</label>
-                    <textarea name="description" id="description" class="form-control" rows="3">{{ $contactUsSection->description }}</textarea>
-                </div><!-- description -->
-                <div class="form-group col-md-12">
-                    <label for="address">address</label>
-                    <input type="text" name="data[address]" id="address" class="form-control" placeholder="address" value="{{ @$contactUsSection->data['address'] }}">
-                </div><!-- address -->
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="name_{{$lang}}">name_{{$lang}}</label>
+                        <input type="text" name="name[{{$lang}}]" id="name_{{ $lang }}" class="form-control" placeholder="name_{{$lang}}" value="{{ $contactUsSection->getTranslation('name', $lang) }}">
+                    </div><!-- name -->
+                @endforeach
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="description_{{$lang}}">description_{{$lang}}</label>
+                        <textarea name="description[{{$lang}}]" id="description_{{$lang}}" class="form-control" rows="3">{{ $contactUsSection->getTranslation('description', $lang) }}</textarea>
+                    </div><!-- description -->
+                @endforeach
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="address_{{$lang}}">address_{{$lang}}</label>
+                        <textarea name="data[address][{{$lang}}]" id="address_{{$lang}}" class="form-control" rows="3">{{ @$contactUsSection->data['address'][$lang] }}</textarea>
+                    </div><!-- address -->
+                @endforeach
                 <div class="form-group col-md-12">
                     <label for="work_time">work_time</label>
                     <input type="text" name="data[work_time]" id="work_time" class="form-control" placeholder="work_time" value="{{ @$contactUsSection->data['work_time'] }}">

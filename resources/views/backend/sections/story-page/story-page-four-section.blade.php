@@ -12,10 +12,12 @@
                 @csrf
                 @method("patch")
                 <input type="hidden" name="type" value="{{ $storyPageFourSection->type }}">
-                <div class="form-group col-md-12">
-                    <label for="name">name</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="name" value="{{ $storyPageFourSection->name }}">
-                </div><!-- name -->
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="name_{{$lang}}">name_{{$lang}}</label>
+                        <input type="text" name="name[{{$lang}}]" id="name_{{ $lang }}" class="form-control" placeholder="name_{{$lang}}" value="{{ $storyPageFourSection->getTranslation('name', $lang) }}">
+                    </div><!-- name -->
+                @endforeach
                 <div class="accordion col-md-12" id="storyPageFourSectionCards">
                     @for ($i = 0; $i <= 2; $i++)
                         <div class="card">
@@ -28,9 +30,11 @@
                             </div>
                             <div id="collapse-{{$i}}" class="collapse {{ $i == 0 ? 'show' : '' }}" aria-labelledby="{{$i}}" data-parent="#storyPageFourSectionCards">
                                 <div class="form-row col-md-12 mb-1">
-                                    <div class="form-group col-md-12">
-                                        <textarea name="data[{{$i}}]" class="form-control" rows="3">{{ $storyPageFourSection->data[$i] }}</textarea>
-                                    </div><!-- data -->
+                                    @foreach (config('app.available_locales') as $lang)
+                                        <div class="form-group col-md-6">
+                                            <textarea name="data[{{$i}}][{{$lang}}]" class="form-control" rows="3">{{ @$storyPageFourSection->data[$i][$lang] }}</textarea>
+                                        </div><!-- data -->
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

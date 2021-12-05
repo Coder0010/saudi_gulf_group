@@ -12,18 +12,24 @@
                 @csrf
                 @method("patch")
                 <input type="hidden" name="type" value="{{ $sliderSection->type }}">
-                <div class="form-group col-md-12">
-                    <label for="name">name</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="name" value="{{ $sliderSection->name }}">
-                </div><!-- name -->
-                <div class="form-group col-md-12">
-                    <label for="sub_name">sub name</label>
-                    <input type="text" name="sub_name" id="sub_name" class="form-control" placeholder="sub name" value="{{ $sliderSection->sub_name }}">
-                </div><!-- sub_name -->
-                <div class="form-group col-md-12">
-                    <label for="description">description</label>
-                    <textarea name="description" id="description" class="form-control" rows="3">{{ $sliderSection->description }}</textarea>
-                </div><!-- description -->
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="name_{{$lang}}">name_{{$lang}}</label>
+                        <input type="text" name="name[{{$lang}}]" id="name_{{ $lang }}" class="form-control" placeholder="name_{{$lang}}" value="{{ $sliderSection->getTranslation('name', $lang) }}">
+                    </div><!-- name -->
+                @endforeach
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="sub_name_{{$lang}}">sub_name_{{$lang}}</label>
+                        <input type="text" name="sub_name[{{$lang}}]" id="sub_name{{ $lang }}" class="form-control" placeholder="sub_name_{{$lang}}" value="{{ $sliderSection->getTranslation('sub_name', $lang) }}">
+                    </div><!-- sub_name -->
+                @endforeach
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="description_{{$lang}}">description_{{$lang}}</label>
+                        <textarea name="description[{{$lang}}]" id="description_{{$lang}}" class="form-control" rows="3">{{ $sliderSection->getTranslation('description', $lang) }}</textarea>
+                    </div><!-- description -->
+                @endforeach
                 <div class="form-group col-md-12">
                     <label for="services">services</label>
                     <select id="services" class="select-2 form-control" name="services[]" multiple="multiple">

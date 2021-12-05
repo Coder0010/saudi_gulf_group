@@ -12,18 +12,24 @@
                 @csrf
                 @method("patch")
                 <input type="hidden" name="type" value="{{ $seoSection->type }}">
-                <div class="form-group col-md-12">
-                    <label for="name">name</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="name" value="{{ $seoSection->name }}">
-                </div><!-- name -->
-                <div class="form-group col-md-12">
-                    <label for="description">description</label>
-                    <textarea name="data[description]" id="description" class="form-control" rows="3">{{ @$seoSection->data['description'] }}</textarea>
-                </div><!-- description -->
-                <div class="form-group col-md-12">
-                    <label for="keywords">keywords</label>
-                    <textarea name="data[keywords]" id="keywords" class="form-control" rows="3">{{ @$seoSection->data['keywords'] }}</textarea>
-                </div><!-- description -->
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="name_{{$lang}}">name_{{$lang}}</label>
+                        <input type="text" name="name[{{$lang}}]" id="name_{{ $lang }}" class="form-control" placeholder="name_{{$lang}}" value="{{ $seoSection->getTranslation('name', $lang) }}">
+                    </div><!-- name -->
+                @endforeach
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="description_{{$lang}}">description_{{$lang}}</label>
+                        <textarea name="description[{{$lang}}]" id="description_{{$lang}}" class="form-control" rows="3">{{ $seoSection->getTranslation('description', $lang) }}</textarea>
+                    </div><!-- description -->
+                @endforeach
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="keywords_{{$lang}}">keywords_{{$lang}}</label>
+                        <textarea name="data[keywords][{{$lang}}]" id="keywords_{{$lang}}" class="form-control" rows="3">{{ @$seoSection->data['keywords'][$lang] }}</textarea>
+                    </div><!-- keywords -->
+                @endforeach
                 <button class="btn btn-success btn-block" type="submit">Submit</button>
             </form>
         </div>

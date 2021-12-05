@@ -17,7 +17,7 @@
                                 <img src="{{ $integratedSection->getModelMedia("integrated_card_image_{$i}") }}"/>
                             </div>
                         @endif
-                        <p> {{ $row }} </p>
+                        <p> {{ @$row[app()->getLocale()] }} </p>
                     </div>
                 </div>
             @endforeach

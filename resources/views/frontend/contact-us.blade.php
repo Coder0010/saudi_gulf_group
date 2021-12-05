@@ -12,7 +12,7 @@
 
         <div class="overlay"></div>
 
-        @include('frontend.partials.breadcrumb', ['title' => 'contact us'])
+        @include('frontend.partials.breadcrumb', ['title' => __('translate.contact-us')])
 
         <section class="inner-page">
             <div class="contact-page">
@@ -22,7 +22,7 @@
                             <div class="info-box">
                                 <i class="fa fa-map"></i>
                                 <strong>Address</strong>
-                                <p> {{ @$contactUsSection->data['address'] }} </p>
+                                <p> {{ @$contactUsSection->data['address'][app()->getLocale()] }} </p>
                             </div>
                         </div>
                         <div class="col-lg-3">

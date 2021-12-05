@@ -12,14 +12,18 @@
                 @csrf
                 @method("patch")
                 <input type="hidden" name="type" value="{{ $integratedSection->type }}">
-                <div class="form-group col-md-12">
-                    <label for="name">name</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="name" value="{{ $integratedSection->name }}">
-                </div><!-- name -->
-                <div class="form-group col-md-12">
-                    <label for="description">description</label>
-                    <textarea name="description" id="description" class="form-control" rows="3">{{ $integratedSection->description }}</textarea>
-                </div><!-- description -->
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="name_{{$lang}}">name_{{$lang}}</label>
+                        <input type="text" name="name[{{$lang}}]" id="name_{{ $lang }}" class="form-control" placeholder="name_{{$lang}}" value="{{ $integratedSection->getTranslation('name', $lang) }}">
+                    </div><!-- name -->
+                @endforeach
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="description_{{$lang}}">description_{{$lang}}</label>
+                        <textarea name="description[{{$lang}}]" id="description_{{$lang}}" class="form-control" rows="3">{{ $integratedSection->getTranslation('description', $lang) }}</textarea>
+                    </div><!-- description -->
+                @endforeach
                 <div class="accordion col-md-12" id="integratedSectionCards">
                     @for ($i = 0; $i <= 2; $i++)
                         <div class="card">
@@ -32,9 +36,11 @@
                             </div>
                             <div id="collapse-{{$i}}" class="collapse {{ $i == 0 ? 'show' : '' }}" aria-labelledby="{{$i}}" data-parent="#integratedSectionCards">
                                 <div class="form-row col-md-12 mb-1">
-                                    <div class="form-group col-md-12">
-                                        <textarea name="data[{{$i}}]" class="form-control" rows="3">{{ $integratedSection->data[$i] }}</textarea>
-                                    </div><!-- data -->
+                                    @foreach (config('app.available_locales') as $lang)
+                                        <div class="form-group col-md-6">
+                                            <textarea name="data[{{$i}}][{{$lang}}]" class="form-control" rows="3">{{ @$integratedSection->data[$i][$lang] }}</textarea>
+                                        </div><!-- data -->
+                                    @endforeach
                                     <div class="form-group col-md-12">
                                         <label for="integrated_card_image_{{$i}}">image</label>
                                         <input type="file" name="integrated_card_image_{{$i}}" id="integrated_card_image_{{$i}}" class="form-control">

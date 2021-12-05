@@ -51,12 +51,20 @@ class BackendController extends Controller
     public function updateSection(Request $request)
     {
         $this->validate(request(), [
-            'name'            => 'required|string',
-            'sub_name'        => 'sometimes|nullable|string',
-            'description'     => 'sometimes|nullable|string',
-            'sub_description' => 'sometimes|nullable|string',
-            'services'        => 'required_if:type,slider-section|array',
-            'services.*'      => 'required|integer|exists:services,id,deleted_at,NULL',
+            'name.en'            => 'required|string',
+            'name.ar'            => 'required|string',
+
+            'sub_name.en'        => 'sometimes|nullable|string',
+            'sub_name.ar'        => 'sometimes|nullable|string',
+
+            'description.en'     => 'sometimes|nullable|string',
+            'description.ar'     => 'sometimes|nullable|string',
+
+            'sub_description.en' => 'sometimes|nullable|string',
+            'sub_description.ar' => 'sometimes|nullable|string',
+
+            'services'           => 'required_if:type,slider-section|array',
+            'services.*'         => 'required|integer|exists:services,id,deleted_at,NULL',
         ]);
         DB::beginTransaction();
         try {

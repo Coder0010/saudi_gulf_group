@@ -7,12 +7,13 @@ use App\Models\Entity;
 use App\Traits\MediaTrait;
 use Spatie\MediaLibrary\HasMedia;
 use Facades\App\Libraries\MediaLibrary;
+use Spatie\Translatable\HasTranslations;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Section extends Entity implements HasMedia
 {
-    use MediaTrait, InteractsWithMedia;
+    use MediaTrait, InteractsWithMedia, HasTranslations;
 
     /**
      * The attributes that are mass assignable.
@@ -37,6 +38,8 @@ class Section extends Entity implements HasMedia
     protected $casts = [
         'data' => 'array',
     ];
+
+    public $translatable = ['name', 'sub_name', 'description', 'sub_description'];
 
     /**
      * Bootstrap the model and its traits.

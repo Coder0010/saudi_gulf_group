@@ -12,7 +12,7 @@
 
         <div class="overlay"></div>
 
-        @include('frontend.partials.breadcrumb', ['title' => 'our story'])
+        @include('frontend.partials.breadcrumb', ['title' => __('translate.our-story')])
 
         <section class="inner-page">
             <div class="story-page">

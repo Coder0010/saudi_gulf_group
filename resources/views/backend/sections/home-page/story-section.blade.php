@@ -12,18 +12,24 @@
                 @csrf
                 @method("patch")
                 <input type="hidden" name="type" value="{{ $storySection->type }}">
-                <div class="form-group col-md-12">
-                    <label for="name">name</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="name" value="{{ $storySection->name }}">
-                </div><!-- name -->
-                <div class="form-group col-md-12">
-                    <label for="sub_name">sub name</label>
-                    <input type="text" name="sub_name" id="sub_name" class="form-control" placeholder="sub name" value="{{ $storySection->sub_name }}">
-                </div><!-- sub_name -->
-                <div class="form-group col-md-12">
-                    <label for="description">description</label>
-                    <textarea name="description" id="description" class="form-control" rows="3">{{ $storySection->description }}</textarea>
-                </div><!-- description -->
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="name_{{$lang}}">name_{{$lang}}</label>
+                        <input type="text" name="name[{{$lang}}]" id="name_{{ $lang }}" class="form-control" placeholder="name_{{$lang}}" value="{{ $storySection->getTranslation('name', $lang) }}">
+                    </div><!-- name -->
+                @endforeach
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="sub_name_{{$lang}}">sub_name_{{$lang}}</label>
+                        <input type="text" name="sub_name[{{$lang}}]" id="sub_name{{ $lang }}" class="form-control" placeholder="sub_name_{{$lang}}" value="{{ $storySection->getTranslation('sub_name', $lang) }}">
+                    </div><!-- sub_name -->
+                @endforeach
+                @foreach (config('app.available_locales') as $lang)
+                    <div class="form-group col-md-6">
+                        <label for="description_{{$lang}}">description_{{$lang}}</label>
+                        <textarea name="description[{{$lang}}]" id="description_{{$lang}}" class="form-control" rows="3">{{ $storySection->getTranslation('description', $lang) }}</textarea>
+                    </div><!-- description -->
+                @endforeach
                 <div class="form-group col-md-12">
                     <label for="image">image</label>
                     <input type="file" name="image" id="image" class="form-control">
